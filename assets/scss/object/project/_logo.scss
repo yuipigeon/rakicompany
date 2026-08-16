@@ -1,0 +1,25 @@
+@use "../../foundation/global/index" as *;
+
+.p-logo {
+  width: clamp(720px, 55%, 50rem);
+  margin: 0 auto;
+  grid-row-gap: 2rem;
+  grid-column-gap: 1rem;
+  white-space: nowrap;
+  @include tab{
+    width: 65%;
+  }
+  @include sp{
+    grid-column-gap: 0;
+    width: 80%;
+    white-space: nomal;
+  }
+}
+.wp-container-core-group-is-layout-c3f67ce3{
+  @include tab{
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+  }
+  @include sp{
+    grid-template-columns: repeat(1, minmax(0, 1fr))
+  }
+}

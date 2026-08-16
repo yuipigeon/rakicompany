@@ -1,0 +1,32 @@
+.single-books {
+  .wp-site-blocks {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+  header.wp-block-template-part {
+    grid-row: 1 / 2;
+  }
+  main {
+    grid-row: 2 / 3;
+    width: clamp(720px, 55%, 50rem);
+    margin: auto;
+  }
+  footer .wp-block-template-part {
+    grid-row: 3 / 4;
+  }
+  .wp-block-media-text__content {
+    justify-self: center;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 20% 80%;
+  }
+  .entry-content {
+    > p {
+      height: 50%;
+    }
+    > div {
+      height: 50%;
+    }
+  }
+}

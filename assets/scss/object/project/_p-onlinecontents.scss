@@ -1,0 +1,74 @@
+@use "../../foundation/global/index" as *;
+//latest-post
+
+.wp-block-query {
+  font-size: 1rem;
+  .is-layout-grid.columns-4 {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    grid-gap: 2rem;
+    width: clamp(720px, 55%, 50rem);
+    @include tab{
+      grid-template-columns: 1fr 1fr !important;
+      width: 65%;
+    }
+    @include sp{
+      grid-template-columns: 1fr !important;
+      width: 80%;
+    }
+  }
+  .columns-4 li {
+    & a {
+      height: auto;
+      text-decoration: none;
+      position: relative;
+      display: inline;
+      background-image: linear-gradient($color-black, $color-black);
+      background-repeat: no-repeat;
+      background-size: 0% 1px;
+      background-position: 0 100%;
+      transition: background-size 1s ease;
+      position: relative;
+      font-weight: 400;
+      font-size: 1rem;
+      &:hover {
+        background-size: 100% 1px;
+      }
+    }
+  }
+
+  .wp-block {
+    &-post-title {
+      text-decoration: none;
+      display: inline-block;
+      -webkit-line-clamp: 4; /* 表示したい行数を指定（例：2行） */
+      line-clamp: 4; /* 表示したい行数を指定（例：2行） */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+    }
+    &-post-featured-image {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      margin-bottom: 1rem !important;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1);
+        transition: all 0.3s ease-out;
+      }
+      &a {
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+      &img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

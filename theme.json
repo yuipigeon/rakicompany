@@ -1,0 +1,214 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "Header",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Footer",
+      "area": "footer"
+    }
+  ],
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "palette": [
+        {
+          "name": "Primary",
+          "slug": "primary",
+          "color": "#3e3e3e"
+        },
+        {
+          "name": "Secondary",
+          "slug": "secondary",
+          "color": "#54baff"
+        }
+      ]
+    },
+    "typography": {
+      "textAlign": true,
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "fontFamily": "\"M PLUS 1p\", \"Noto Sans JP\", MyYuGothicM, YuGothic, -apple-system,BlinkMacSystemFont,  \"Hiragino Kaku Gothic ProN \", Meiryo, Verdana, arial,helvetica, sans-serif",
+          "name": "M PLUS 1p",
+          "slug": "m-plus-1p",
+          "fontFace": [
+            {
+              "fontFamily": "M PLUS 1p",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/M_PLUS_1p/MPLUS1p-Regular.ttf"]
+            },
+            {
+              "fontFamily": "M PLUS 1p",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/M_PLUS_1p/MPLUS1p-Medium.ttf"]
+            },
+            {
+              "fontFamily": "M PLUS 1p",
+              "fontWeight": "700",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/M_PLUS_1p/MPLUS1p-Bold.ttf"]
+            }
+          ]
+        },
+        {
+          "fontFamily": "\"Noto Sans JP\",  MyYuGothicM, YuGothic, -apple-system,BlinkMacSystemFont,  \"Hiragino Kaku Gothic ProN \", Meiryo, Verdana, arial,helvetica, sans-serif",
+          "name": "Noto Sans JP",
+          "slug": "noto-sans-jp",
+          "fontFace": [
+            {
+              "fontFamily": "Noto Sans JP",
+              "fontWeight": "100 900",
+              "fontStyle": "normal",
+              "fontStretch": "normal",
+              "src": [
+                "file:./assets/fonts/Noto_Sans_JP/NotoSansJP-VariableFont_wght.ttf"
+              ]
+            }
+          ]
+        },
+        {
+          "fontFamily": "\"Lato\",  MyYuGothicM, YuGothic, -apple-system,BlinkMacSystemFont,  \"Hiragino Kaku Gothic ProN \", Meiryo, Verdana, arial,helvetica, sans-serif",
+          "name": "Lato",
+          "slug": "lato",
+          "fontFace": [
+            {
+              "fontFamily": "Lato",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/Lato/Lato-Regular.ttf"]
+            },
+            {
+              "fontFamily": "Lato",
+              "fontWeight": "700",
+              "fontStyle": "normal",
+              "src": ["file:./assets/fonts/Lato/Lato-Bold.ttf"]
+            }
+          ]
+        },
+        {
+          "fontFamily": "\"Momo Signature\", cursive",
+          "name": "Momo Signature",
+          "slug": "momo-signature",
+          "fontFace": [
+            {
+              "fontFamily": "Momo Signature",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "src": [
+                "file:./assets/fonts/Momo_Signature/MomoSignature-Regular.ttf"
+              ]
+            }
+          ]
+        }
+      ],
+      "fontSizes": [
+        {
+          "size": "13px",
+          "slug": "small",
+          "name": "Small"
+        },
+        {
+          "size": "16px",
+          "slug": "normal",
+          "name": "Normal"
+        }
+      ]
+    },
+    "layout": {
+      "contentSize": "80%"
+    },
+    "blocks": {
+      "core/spacer": {
+        "spacing": {
+          "spacingSizes": [
+            {
+              "name": "112px",
+              "slug": "large",
+              "size": "112px"
+            },
+            {
+              "name": "80px",
+              "slug": "medium",
+              "spacingSizes": "80px"
+            },
+            {
+              "name": "48px",
+              "slug": "small",
+              "size": "48px"
+            }
+          ]
+        }
+      },
+      "core/group":{
+        "width": {
+          "": [
+            {
+              "name": "112px",
+              "slug": "large",
+              "size": "112px"
+            },
+            {
+              "name": "80px",
+              "slug": "medium",
+              "spacingSizes": "80px"
+            },
+            {
+              "name": "48px",
+              "slug": "small",
+              "size": "48px"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "styles": {
+    "blocks": {
+      "core/heading": {
+        "variations": {
+          "outline": {
+            "border": {
+              "color": "currentColor",
+              "style": "solid",
+              "width": "2px"
+            }
+          },
+          "centered": {
+            "typography": {
+              "textAlign": "center"
+            }
+          },
+          "left": {
+            "typography": {
+              "textAlign": "left"
+            }
+          },
+          "right": {
+            "typography": {
+              "textAlign": "right"
+            }
+          }
+        }
+      },
+      "core/cover": {
+        "elements": {
+          "innerContainer": {
+            "layout": {
+              "display": "flex",
+              "flexDirection": "column",
+              "justifyContent": "space-between"
+            }
+          }
+        }
+      }
+    }
+  }
+}

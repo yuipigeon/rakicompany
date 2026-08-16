@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+/**
+ * 変数定義
+ * カラー、フォント、サイズなどのプロジェクト全体で使用する変数を定義
+ */
+
+// Color
+// -----------------------------------------------------------------------------
+$color-white: #ffffff;
+$color-black: #3e3e3e;
+$color-red: #dd4040;
+
+// Font
+// -----------------------------------------------------------------------------
+
+$fontMp: "M PLUS 1p", Noto Sans JP, MyYuGothicM, YuGothic, -apple-system,
+  BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", Meiryo, Verdana, arial,
+  helvetica, sans-serif;
+$fontMomo: "Momo Signature", Noto Sans JP, MyYuGothicM, YuGothic, -apple-system,
+  BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", Meiryo, Verdana, arial,
+  helvetica, sans-serif, cursive;
+$fontLato: "Lato", Noto Sans JP, MyYuGothicM, YuGothic, -apple-system,
+  BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", Meiryo, Verdana, arial,
+  helvetica, sans-serif, cursive;
+
+// Size
+// -----------------------------------------------------------------------------
+//fontweight
+$Lbold: 300; /*light*/
+$Rbold: 400; /*Regular*/
+$Mbold: 500; /*Regular*/
+$bold: 700; /*Bold*/
+$Hbold: 900; /*Heavy*/

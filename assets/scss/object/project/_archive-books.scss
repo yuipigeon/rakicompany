@@ -1,0 +1,68 @@
+@use "../../foundation/global/index" as *;
+
+.post-type-archive-books {
+  .wp-site-blocks {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+  header.wp-block-template-part {
+    grid-row: 1 / 2;
+  }
+  main {
+    grid-row: 2 / 3;
+  }
+  footer .wp-block-template-part {
+    grid-row: 3 / 4;
+  }
+
+  .p-author__layout {
+    display: block;
+  }
+
+  .wp-block-query {
+    > ul {
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      width: clamp(720px, 55%, 50rem);
+      grid-column-gap: 2rem;
+      grid-row-gap: 1rem;
+      @include sp {
+        width: 80%;
+      }
+      & img {
+        cursor: pointer;
+        margin-bottom: 1rem;
+
+        &:hover {
+          transform: scale(1.1);
+          transition: all 0.3s ease-out;
+        }
+      }
+    }
+  }
+
+  .wp-block-post-title {
+    height: auto;
+    text-decoration: none;
+    position: relative;
+    display: inline;
+    background-image: linear-gradient($color-black, $color-black);
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    transition: background-size 1s ease;
+    position: relative;
+    &:hover {
+      background-size: 100% 1px;
+    }
+  }
+  @media (min-width: 600px) {
+    width: 100%;
+  }
+
+  .wp-block-post-featured-image {
+    aspect-ratio: 3/4;
+  }
+}

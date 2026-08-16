@@ -1,0 +1,26 @@
+@use "../../foundation/global/index" as *;
+
+.p-news {
+  backdrop-filter: blur(2.3px) saturate(156%);
+  -webkit-backdrop-filter: blur(5px) saturate(156%);
+  background-color: rgba(255, 255, 255, 0.66);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+  @include tab{
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .wp-block-query > ul {
+    display: block;
+    @include tab{
+      width: 100%;
+    }
+  }
+  a {
+    background-size: 0% 2px;
+
+    &:hover {
+      background-size: 100% 2px;
+    }
+  }
+}

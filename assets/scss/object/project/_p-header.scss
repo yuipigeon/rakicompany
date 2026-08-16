@@ -1,0 +1,101 @@
+@use "../../foundation/global/index" as *;
+
+/* 追従ヘッダー（常に白・半透明） */
+.wp-site-blocks > .wp-block-template-part:has(.site-header) {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+header.site-header,
+header {
+  display: block !important;
+  padding-right: 1em !important;
+  
+  @include tab{
+    display: flex !important;  
+    padding-right: 0 !important;
+    width: 100%;
+  }
+  @include sp{
+    width: 100%;
+  }
+  
+  >header{
+    @include tab{
+      margin: 0 1rem
+    }
+  }
+
+  nav {
+    margin-right: 4rem;
+  }
+
+  .wp-block-navigation__responsive-container-open {
+    @include sp{
+      height: 100%;
+    }
+    svg {
+      width: 48px;
+      height: 48px;
+      @include sp{
+        width: 20px;
+      }
+    }
+  }
+
+  /* ばつボタンもハンバーガーと同じ見た目サイズに */
+  .wp-block-navigation__responsive-container-close {
+    position: fixed;
+    z-index: 100001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 48px;
+      height: 48px;
+      @include sp{
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  rect {
+    width: 32px;
+  }
+
+  .c-title {
+    @include tab{
+      margin: 0.8rem 0 !important;
+    }
+    >h1{
+      @include tab{
+         padding-left: 0 !important;
+         padding-top: 0 !important;
+      }
+    }
+    a {
+    height: auto;
+    text-decoration: none;
+    position: relative;
+    display: inline;
+    background-image: linear-gradient($color-black, $color-black);
+    background-repeat: no-repeat;
+    background-size: 0% 4px;
+    background-position: 0 100%;
+    transition: background-size 1s ease;
+    position: relative;
+    @include sp{
+      font-size: 6vw ;
+    }
+    &:hover {
+      background-size: 100% 4px;
+    }
+  }
+}
+  
+}

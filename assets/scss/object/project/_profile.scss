@@ -1,0 +1,80 @@
+@use "../../foundation/global/index" as *;
+
+.p-profile {
+  width: clamp(720px, 55%, 50rem);
+  margin: 0 auto;
+  @include tab{
+    width: 65%;
+    top: -80px;
+    display: grid;    
+    grid-template-rows: auto auto;
+    grid-row-gap: 4rem;
+    justify-items: center;
+    align-items: center;
+  }
+  @include sp {
+    width: 80%;
+  }
+  &__figcaption {
+    display: flex;
+    gap: 20px;
+    max-width: none;
+    > figure {
+      //   width: 45vw;
+      flex: 1;
+      position: relative;
+      left: 1rem;
+      > img {
+        width: 100%; //35vw;
+        height: clamp(300px, 80vw, 650px);
+        object-fit: cover; //
+      }
+    }
+    @include tab{
+      --wp--style--global--content-size: 100%;
+      --wp--style--global--wide-size: 100%;
+      grid-row: 2 / 3;
+      >figure{
+        display: none;
+      }
+    }
+  }
+  &__textarea {
+    flex: 1; //
+    width: 23rem;
+    height: 100;
+    position: absolute;
+    right: 0;
+    top: 4vw;
+    background-color: #fdfdfda1;
+    padding: 1rem 0.5rem;
+    box-shadow: 5px 4px 7px #0000002b;
+    @include tab{
+      position: unset;
+      text-align: center;
+      box-shadow: none;
+      width: 100%;
+      >p{
+          text-align: left;
+      }
+    }
+  }
+  &__photo {
+    position: absolute;
+    left: 0;
+    width: 16rem;
+    bottom: -1vw;
+    @include tab{
+      grid-row: 1 / 1;
+      position: unset;
+      justify-self: center;
+      align-self: center;
+      margin-left: auto !important;
+      --wp--style--global--content-size: fit-content;
+      --wp--style--global--wide-size: fit-content;
+      >img{
+        aspect-ratio: 1 / 1 !important;
+      }
+    }
+  }
+}

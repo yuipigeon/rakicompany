@@ -1,0 +1,15 @@
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/**
+ * ベーススタイル
+ * 要素セレクタやタイポグラフィのベーススタイルを記述
+ */
+@use "../foundation/global/index" as g;
+body {
+  font-family: g.$fontMp;
+  letter-spacing: 1.1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,9 @@
+@use "../../foundation/global/index" as *;
+.c-text {
+  &__red {
+    color: $color-red;
+  }
+  &__size--small {
+    font-size: 0.73rem;
+  }
+}

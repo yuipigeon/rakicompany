@@ -1,0 +1,69 @@
+@use "../../foundation/global/index" as *;
+
+.p-profile {
+  width: clamp(720px, 55%, 50rem);
+  @include tab{
+    width: 65%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  @include sp {
+    width: 80%;
+  }
+  margin: 0 auto;
+  &__figcaption {
+    display: flex;
+    gap: 20px;
+    max-width: none;
+    > figure {
+      //   width: 45vw;
+      flex: 1;
+      position: relative;
+      left: 1rem;
+      > img {
+        width: 100%; //35vw;
+        height: clamp(300px, 80vw, 650px);
+        object-fit: cover; //
+      }
+    }
+    @include tab{
+      flex-direction: column;
+      >img{
+        display: none;
+      }
+    }
+  }
+  &__textarea {
+    flex: 1; //
+    width: 23rem;
+    height: 100;
+    position: absolute;
+    right: 0;
+    top: 4vw;
+    background-color: #fdfdfda1;
+    padding: 1rem 0.5rem;
+    box-shadow: 5px 4px 7px #0000002b;
+    @include tab{
+      box-shadow: none;
+      width: 100%;
+    }
+    >p{
+      @include tab{
+        text-align: center;
+      }
+    }
+  }
+  &__photo {
+    position: absolute;
+    left: 0;
+    width: 16rem;
+    bottom: -1vw;
+    @include tab{
+      position: unset;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 100%;
+    }
+  }
+  
+}

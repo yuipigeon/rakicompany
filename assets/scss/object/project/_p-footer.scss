@@ -1,0 +1,133 @@
+@use "../../foundation/global/index" as *;
+
+.p-footer {
+  width: clamp(720px, 80%, 100rem);
+  margin: 0 auto;
+  @include tab{
+    width: 80%;
+    // padding: 0 0 var(--wp--preset--spacing--50) 0;
+    display: block;
+  }
+  div{
+    @include tab{
+      width: 100%;
+    }
+  }
+  >.is-content-justification-right{
+    @include tab{
+      width: 100%;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      margin: 0 auto;
+      gap: 0;
+    }
+    >div{ /*Pages*/
+      @include tab{
+        justify-self: left;
+      }
+      &:last-child{
+        @include tab{
+          padding-left: 30%;
+        }
+      }
+    }
+  }
+  &__address {
+    max-width: none;
+    align-items: flex-start;
+    @include tab{
+      display: grid;
+      margin: 0 auto;
+      width: 100%;
+    }
+    >h1 {
+      @include tab{
+        margin-top: 1rem;
+      }
+    }
+    >div {
+      gap: 2rem;
+      align-items: start;
+      @include tab{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-items: center;
+        gap: 0;
+      }
+      >div {
+        @include tab{ 
+          justify-self: left;
+        }
+        &:last-child{
+          @include tab{
+            padding-left: 30%;
+          }
+        }
+      }
+    }
+    p {
+      max-width: none;
+    }
+    
+  }
+}
+footer{
+
+.wp-block-navigation .has-child .wp-block-navigation__submenu-container
+>.wp-block-navigation-item
+>.wp-block-navigation-item__content {
+  padding: 0.2em 0;
+  margin-left: 1rem;
+}
+
+.wp-block-navigation:not(.has-background) .wp-block-navigation__submenu-container {
+  background-color: unset;
+  border: unset;
+}
+
+.wp-block-navigation .has-child 
+.wp-block-navigation-submenu__toggle[aria-expanded=true]~
+.wp-block-navigation__submenu-container {
+  min-width: auto;
+  white-space: nowrap;
+}
+
+.wp-container-core-group-is-layout-35d1f3ed {
+  gap: 50px;
+}
+
+.mb{
+  margin-bottom:  1.5rem;
+}
+
+.appear{
+  opacity: 1;
+}
+
+.wp-block-navigation-item__label {
+  font-size: 1rem;
+}
+
+.wp-container-core-group-is-layout-fe9cc265 a:where(:not(.wp-element-button)){
+    height: auto;
+    text-decoration: none;
+    position: relative;
+    display: inline;
+    background-image: linear-gradient($color-black, $color-black);
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    transition: background-size 1s ease;
+    position: relative;
+    font-weight: 400;
+    font-size: 1rem;
+    &:hover {
+      background-size: 100% 1px;
+    }
+}
+
+.wp-container-core-group-is-layout-fe9cc265 .wp-block-group-is-layout-flex{
+    gap: 0.5rem;
+} 
+}

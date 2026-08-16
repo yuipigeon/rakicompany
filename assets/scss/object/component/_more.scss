@@ -1,0 +1,41 @@
+// /* ==========================================================================
+//    Component
+//    ========================================================================== */
+
+// /**
+//  * Componentレイヤー
+//  * 再利用可能な小さな単位のスタイル
+//  * 各コンポーネントファイルをここにインポート
+//  */
+
+// // 例: @import "button";
+// // 例: @import "card";
+// // 例: @import "form";
+@use "../../foundation/global/index" as *;
+.c-more {
+  margin: 0.5rem auto 0;
+  width: clamp(720px, 55%, 50rem);
+  @include tab{
+    width: 65%;
+  }
+  @include sp {
+    width: 80%;
+  }
+  & a {
+    cursor: pointer;
+    width: fit-content;
+    display: block;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: 1px solid $color-black;
+    text-decoration: none;
+    &:hover {
+      background-color: $color-black;
+      color: $color-white;
+      transition: all 0.3s ease-out;
+      a {
+        color: $color-white;
+      }
+    }
+  }
+}

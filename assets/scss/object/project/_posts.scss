@@ -1,0 +1,89 @@
+@use "../../foundation/global/index" as *;
+//latest-post
+.author {
+  .wp-site-blocks {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+  header.wp-block-template-part {
+    grid-row: 1 / 2;
+  }
+  main {
+    grid-row: 2 / 3;
+  }
+  footer .wp-block-template-part {
+    grid-row: 3 / 4;
+  }
+}
+.p-posts {
+  &.is-grid.columns-4 {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    grid-gap: 2rem;
+    width: clamp(720px, 55%, 50rem);
+    @include tab{
+      grid-template-columns: 1fr 1fr !important;
+      width: 65%;
+      grid-gap: 3rem;
+    }
+    @include sp{
+      grid-template-columns: 1fr !important;
+      width: 80%;
+    }
+  }
+  &.columns-4 li {
+    & a {
+      text-decoration: none;
+      position: relative;
+      display: inline;
+      background-image: linear-gradient($color-black, $color-black);
+      background-repeat: no-repeat;
+      background-size: 0% 1px;
+      background-position: 0 100%;
+      transition: background-size 1s ease;
+      position: relative;
+
+      &:hover {
+        background-size: 100% 1px;
+      }
+    }
+    @media (min-width: 600px) {
+      width: 100%;
+    }
+  }
+}
+.wp-block-latest-posts {
+  &__post-title {
+    text-decoration: none;
+    display: inline-block;
+    -webkit-line-clamp: 4; /* 表示したい行数を指定（例：2行） */
+    line-clamp: 4; /* 表示したい行数を指定（例：2行） */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+  }
+  &__featured-image {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.3s ease-out;
+    }
+    &a {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+    &img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}

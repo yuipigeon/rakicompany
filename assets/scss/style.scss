@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+
+//foundation
+@use "foundation/global"; //_index.scssが存在する場合は、indexを省略してディレクトリ名だけでも動作する
+@use "foundation/base"; //_index.scssが存在する場合は、indexを省略してディレクトリ名だけでも動作する
+// @use "foundation/reset";
+
+//layouut
+@use "layout/footer";
+@use "layout/header";
+@use "layout/main";
+@use "layout/wrapper";
+
+//object
+//component
+@use "object/component/more";
+@use "object/component/width";
+@use "object/component/c-text";
+@use "object/component/title";
+@use "object/component/link";
+
+//project
+@use "object/project/posts";
+@use "object/project/books";
+@use "object/project/logo";
+@use "object/project/nav";
+@use "object/project/query";
+@use "object/project/project";
+@use "object/project/profile";
+@use "object/project/p-footer";
+@use "object/project/p-header";
+@use "object/project/p-news";
+@use "object/project/p-contact";
+@use "object/project/p-onlinecontents";
+@use "object/project/single-news";
+@use "object/project/single-books";
+@use "object/project/archive-books";
+
+//utility
+@use "object/utility/u-margin";

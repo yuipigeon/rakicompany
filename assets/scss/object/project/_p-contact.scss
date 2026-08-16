@@ -1,0 +1,35 @@
+@use "../../foundation/global/index" as *;
+
+.is-style-width__contact {
+  width: clamp(720px, 55%, 50rem);
+  margin: 0 auto;
+  form {
+    margin: 0 auto;
+  }
+  input {
+    width: 100%;
+  }
+  textarea {
+    width: 100%;
+  }
+  p {
+    margin: 2rem 0 0;
+  }
+  @include tab{
+    width: 100%;
+    --wp--style--global--content-size: 70%;
+    --wp--style--global--wide-size: 70%;
+  }
+  .wpcf7-submit {
+    width: 3.5rem;
+    margin: 5rem auto 0;
+    display: block;
+  }
+}
+
+
+.is-style-sp-none{
+    @include tab{
+        height: 0 !important;
+    }
+  }

@@ -1,0 +1,227 @@
+@use "../../foundation/global/index" as *;
+
+header {
+    nav {
+      line-height: 1.3;
+      @include tab{
+        margin: 0 auto !important;
+      }
+      @include sp-tab{
+        line-height: 2;
+        margin: 0  !important;
+      }
+        ul{
+            font-size: clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.156), 16px);
+            display: flex !important;
+            padding-right: 0% !important;
+            white-space: nowrap;
+            gap: 1rem !important;
+            flex-grow: unset !important;
+        }
+    }
+    .wp-block-navigation__responsive-container-content{
+      margin-bottom: 0.4rem;
+    }
+
+    /* 600px以上：サブメニューもメインと同じ左→右の下線ホバー */
+    @media (min-width: 601px) {
+      .wp-block-navigation__submenu-container
+        > .wp-block-navigation-item
+        > a.wp-block-navigation-item__content {
+        height: auto;
+        text-decoration: none;
+        position: relative;
+        display: inline;
+        background-image: linear-gradient($color-black, $color-black);
+        background-repeat: no-repeat;
+        background-size: 0% 1px;
+        background-position: 0 100%;
+        transition: background-size 1s ease;
+
+        &:hover {
+          background-image: linear-gradient($color-black, $color-black);
+          background-size: 100% 1px;
+          background-position: 0 100%;
+        }
+      }
+    }
+
+    .wp-block-navigation.items-justified-right .wp-block-navigation__container .has-child .wp-block-navigation__submenu-container{
+      left: -1rem;
+    }
+    
+    .wp-block-navigation:not(.has-background) .wp-block-navigation__submenu-container{
+      border: none;
+    }
+
+    .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria-expanded=true]~.wp-block-navigation__submenu-container, .wp-block-navigation .has-child:not(.open-on-click):hover>.wp-block-navigation__submenu-container{
+      width: fit-content;
+      min-width: auto;
+    }
+
+/* PC：ホバーで表示 */
+@media (min-width: 601px) {
+  .wp-block-navigation-item.has-child:hover > .wp-block-navigation__submenu-container {
+      display: block;
+  }
+}
+
+/* スマホ／ドロワー */
+@include sp-tab {
+  .wp-block-navigation__responsive-container.is-menu-open {
+    .wp-block-navigation__responsive-container-content {
+      padding-top: 5.5rem !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: left;
+    }
+
+    .wp-block-navigation__responsive-container-content
+      .wp-block-navigation__container {
+      align-items: stretch !important;
+      justify-content: center !important;
+      width: min(18rem, 80vw);
+      max-width: 100%;
+      margin-inline: auto;
+      gap: 1.25rem !important;
+      white-space: normal !important;
+      flex-direction: column !important;
+      text-align: left;
+    }
+
+    /* 全項目共通：左に文言列、右にくの字列（空でも確保して文字頭を揃える） */
+    .wp-block-navigation__responsive-container-content
+      .wp-block-navigation-item {
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) 1.75rem;
+      align-items: center !important;
+      justify-items: start;
+      column-gap: 0.75rem;
+      width: 100% !important;
+      text-align: left;
+      box-sizing: border-box;
+      flex-direction: unset !important;
+    }
+
+    .wp-block-navigation__responsive-container-content
+      .wp-block-navigation-item
+      > a.wp-block-navigation-item__content {
+      grid-column: 1;
+      grid-row: 1;
+      width: 100%;
+      text-align: left !important;
+      justify-content: flex-start !important;
+      justify-self: stretch;
+    }
+
+    .wp-block-navigation__responsive-container-content
+      .wp-block-navigation-item.has-child
+      > a.wp-block-navigation-item__content {
+      padding-right: 0 !important;
+      min-width: 0;
+    }
+
+    /* くの字は右列 */
+    .wp-block-navigation__submenu-icon.wp-block-navigation-submenu__toggle {
+      grid-column: 2;
+      grid-row: 1;
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 1.75rem !important;
+      height: 1.75rem !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: visible;
+      justify-self: end;
+      background: transparent;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+
+      svg {
+        display: none !important;
+      }
+
+      &::after {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-right: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+        transform: rotate(45deg);
+        transition: transform 0.3s ease;
+      }
+
+      &[aria-expanded="true"]::after {
+        transform: rotate(225deg);
+      }
+    }
+
+    /* サブメニュー：下へ全幅展開 */
+    .wp-block-navigation__responsive-container-content
+      .has-child
+      .wp-block-navigation__submenu-container {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      position: static !important;
+      left: auto !important;
+      right: auto !important;
+      top: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      justify-content: flex-start !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      height: auto !important;
+      max-height: 0 !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      overflow: hidden !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.35s ease,
+        visibility 0.3s ease;
+      pointer-events: none;
+      text-align: left;
+      gap: 0.35rem !important;
+    }
+
+    .wp-block-navigation__responsive-container-content
+      .has-child
+      .wp-block-navigation-submenu__toggle[aria-expanded="true"]
+      ~ .wp-block-navigation__submenu-container {
+      max-height: 12rem !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      padding-top: 0.5rem !important;
+      padding-left: 0 !important;
+      pointer-events: auto;
+    }
+
+    .wp-block-navigation__responsive-container-content
+      .has-child
+      .wp-block-navigation__submenu-container
+      > .wp-block-navigation-item {
+      display: block !important;
+      width: 100%;
+      grid-template-columns: none;
+    }
+
+    .wp-block-navigation__responsive-container-content
+      .has-child
+      .wp-block-navigation__submenu-container
+      > .wp-block-navigation-item
+      > .wp-block-navigation-item__content {
+      padding: 0.2rem 0 !important;
+      justify-content: flex-start;
+      text-align: left;
+      width: 100%;
+    }
+  }
+}
+
+}

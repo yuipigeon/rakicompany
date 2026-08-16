@@ -1,0 +1,25 @@
+@use "../foundation/global/index" as *;
+
+/* ==========================================================================
+   Header Layout
+   ========================================================================== */
+
+/**
+ * ヘッダーエリアのレイアウト
+ */
+
+// NEWS背景白のエリア
+.is-frontend {
+  .wp-block-cover .wp-block-group {
+    width: clamp(18.75rem, 45%, 46.88rem);
+    display: flex;
+    justify-self: right;
+    flex-direction: column;
+    @include tab{
+      width: 81%;
+    }
+    @include sp{
+      justify-self: center;
+    }
+  }
+}

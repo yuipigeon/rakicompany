@@ -1,0 +1,32 @@
+.single-news {
+  .wp-site-blocks {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+  header.wp-block-template-part {
+    grid-row: 1 / 2;
+  }
+  main {
+    grid-row: 2 / 3;
+    width: clamp(720px, 80%, 100rem);
+    margin: 0 auto;
+  }
+  footer .wp-block-template-part {
+    grid-row: 3 / 4;
+  }
+  .wp-block-post-date {
+    margin: 5rem 0 2rem;
+  }
+  .wp-block-post-title {
+    margin: 0 auto;
+  }
+  .entry-content {
+    margin: 0 auto;
+    padding: 3rem 0 0;
+  }
+  .is-layout-constrained
+    > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    max-width: none;
+  }
+}

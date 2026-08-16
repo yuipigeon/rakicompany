@@ -1,0 +1,13 @@
+.p-query {//onlinecontentsのquery
+  //p-query はTOPのクエリループだけスタイルを当てるためについている。固定ページには影響しない。
+  & .p-query__books-item:nth-of-type(n + 9) {
+    display: none;
+  }
+}
+
+/* トップページのクエリーループ内だけに限定 */
+.wp-block-query .wp-block-gallery figure:nth-of-type(n + 4) {
+  display: none;
+}
+
+
