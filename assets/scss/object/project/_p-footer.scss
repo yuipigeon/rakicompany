@@ -45,6 +45,26 @@
         margin-top: 1rem;
       }
     }
+
+    .wp-block-site-title {
+      width: fit-content;
+
+      a {
+        text-decoration: none;
+        position: relative;
+        display: inline;
+        background-image: linear-gradient($color-black, $color-black),
+          linear-gradient($color-black, $color-black);
+        background-repeat: no-repeat;
+        background-size: 100% 1px, 0 2px;
+        background-position: 0 100%, 0 100%;
+        transition: background-size 1s ease;
+
+        &:hover {
+          background-size: 100% 1px, 100% 2px;
+        }
+      }
+    }
     >div {
       gap: 2rem;
       align-items: start;

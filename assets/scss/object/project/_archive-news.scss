@@ -1,0 +1,72 @@
+@use "../../foundation/global/index" as *;
+
+.post-type-archive-news {
+  .wp-site-blocks {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+  header.wp-block-template-part {
+    grid-row: 1 / 2;
+  }
+  main {
+    grid-row: 2 / 3;
+  }
+  footer .wp-block-template-part {
+    grid-row: 3 / 4;
+  }
+}
+
+.p-archive-news {
+  width: clamp(720px, 55%, 50rem);
+  margin: 5rem auto 8rem;
+
+  @include tab {
+    width: 80%;
+    margin: 4rem auto 6rem;
+  }
+
+  > .wp-block-heading {
+    margin: 0 0 2rem;
+    font-size: clamp(15.197px, 0.95rem + ((1vw - 3.2px) * 0.61), 23px);
+    font-weight: 400;
+    letter-spacing: 1.1px;
+  }
+
+  .wp-block-query ul,
+  .wp-block-post-template {
+    display: block !important;
+    grid-template-columns: none !important;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .wp-block-post {
+    margin: 0 0 1.25rem;
+  }
+
+  .wp-block-post-title {
+    margin: 0;
+  }
+
+  .wp-block-post-title a {
+    height: auto;
+    text-decoration: none;
+    position: relative;
+    display: inline;
+    background-image: linear-gradient($color-black, $color-black);
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    background-position: 0 100%;
+    transition: background-size 1s ease;
+
+    &:hover {
+      background-size: 100% 2px;
+    }
+  }
+
+  .wp-block-post-date {
+    margin-top: 0.15rem;
+  }
+}

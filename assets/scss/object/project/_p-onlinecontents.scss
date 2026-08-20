@@ -1,74 +1,142 @@
 @use "../../foundation/global/index" as *;
-//latest-post
 
-.wp-block-query {
-  font-size: 1rem;
-  .is-layout-grid.columns-4 {
+// オンラインコンテンツ一覧（/author/{nicename}/）
+// サイトエディターの著者テンプレートでも、フロント .p-posts と同じ見た目にする
+.author {
+  .wp-site-blocks {
     display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+  header.wp-block-template-part {
+    grid-row: 1 / 2;
+  }
+  main,
+  .wp-site-blocks > .wp-block-group.is-layout-constrained {
+    grid-row: 2 / 3;
+    --wp--style--global--content-size: 100%;
+    --wp--style--global--wide-size: 100%;
+
+    > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+      max-width: none !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+  footer .wp-block-template-part,
+  footer.wp-block-template-part {
+    grid-row: 3 / 4;
+  }
+
+  .wp-block-heading.has-text-align-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .wp-block-query {
+    font-size: 1rem;
+  }
+
+  .wp-block-post-template.columns-4,
+  .wp-block-query ul.columns-4 {
+    display: grid !important;
     margin: 0 auto;
+    padding: 0 !important;
+    list-style: none;
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
     grid-gap: 2rem;
     width: clamp(720px, 55%, 50rem);
-    @include tab{
+
+    @include tab {
       grid-template-columns: 1fr 1fr !important;
       width: 65%;
+      grid-gap: 3rem;
     }
-    @include sp{
+    @include sp {
       grid-template-columns: 1fr !important;
       width: 80%;
     }
   }
-  .columns-4 li {
-    & a {
-      height: auto;
-      text-decoration: none;
-      position: relative;
-      display: inline;
-      background-image: linear-gradient($color-black, $color-black);
-      background-repeat: no-repeat;
-      background-size: 0% 1px;
-      background-position: 0 100%;
-      transition: background-size 1s ease;
-      position: relative;
-      font-weight: 400;
-      font-size: 1rem;
-      &:hover {
-        background-size: 100% 1px;
-      }
+
+  .wp-block-post {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    width: 100% !important;
+  }
+
+  // カード内の入れ子グリッドを解除（崩れの主因）
+  .wp-block-post > .wp-block-group,
+  .wp-block-post .wp-block-group.is-layout-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    gap: 0 !important;
+    width: 100%;
+  }
+
+  .wp-block-post .wp-block-group.is-vertical {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .wp-block-post a {
+    height: auto;
+    text-decoration: none;
+    position: relative;
+    display: inline;
+    background-image: linear-gradient($color-black, $color-black);
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    transition: background-size 1s ease;
+    font-weight: 400;
+    font-size: 1rem;
+
+    &:hover {
+      background-size: 100% 1px;
     }
   }
 
-  .wp-block {
-    &-post-title {
-      text-decoration: none;
-      display: inline-block;
-      -webkit-line-clamp: 4; /* 表示したい行数を指定（例：2行） */
-      line-clamp: 4; /* 表示したい行数を指定（例：2行） */
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      cursor: pointer;
-    }
-    &-post-featured-image {
+  .wp-block-post-title {
+    margin: 0;
+    text-decoration: none;
+    display: inline-block;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+  }
+
+  .wp-block-post-featured-image {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    margin: 0 0 1rem !important;
+    cursor: pointer;
+
+    a,
+    a:hover {
+      display: block !important;
       width: 100%;
-      aspect-ratio: 3 / 2;
-      overflow: hidden;
-      margin-bottom: 1rem !important;
-      cursor: pointer;
-      &:hover {
-        transform: scale(1.1);
-        transition: all 0.3s ease-out;
-      }
-      &a {
-        display: block;
-        height: 100%;
-        width: 100%;
-      }
-      &img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-      }
+      height: 100%;
+      background-image: none;
+      background-size: 0;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      transition: all 0.3s ease-out;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
     }
   }
 }

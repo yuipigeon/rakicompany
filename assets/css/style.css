@@ -1,5 +1,19 @@
 @charset "UTF-8";
 /* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+/* ==========================================================================
    Foundation
    ========================================================================== */
 /**
@@ -22,6 +36,20 @@
    Mixin
    ========================================================================== */
 /* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+/* ==========================================================================
    Base
    ========================================================================== */
 /**
@@ -31,6 +59,8 @@
 body {
   font-family: "M PLUS 1p", Noto Sans JP, MyYuGothicM, YuGothic, -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", Meiryo, Verdana, arial, helvetica, sans-serif;
   letter-spacing: 1.1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ==========================================================================
@@ -40,11 +70,41 @@ body {
  * フッターエリアのレイアウト
  */
 /* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+/* ==========================================================================
    Header Layout
    ========================================================================== */
 /**
  * ヘッダーエリアのレイアウト
  */
+@media screen and (max-width: 768px) {
+  .is-frontend .wp-block-cover:has(.p-news) {
+    min-height: calc(100svh - var(--header-height, 6.5rem)) !important;
+    height: calc(100svh - var(--header-height, 6.5rem));
+    aspect-ratio: unset !important;
+    align-items: flex-end;
+    padding-bottom: 20px !important;
+  }
+  .is-frontend .wp-block-cover:has(.p-news) > .wp-block-cover__inner-container > .wp-block-spacer {
+    display: none;
+  }
+  .is-frontend .wp-block-cover:has(.p-news) .p-news {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
 .is-frontend .wp-block-cover .wp-block-group {
   width: clamp(18.75rem, 45%, 46.88rem);
   display: flex;
@@ -53,7 +113,7 @@ body {
 }
 @media screen and (max-width: 768px) {
   .is-frontend .wp-block-cover .wp-block-group {
-    width: 81%;
+    width: 100%;
   }
 }
 @media screen and (max-width: 480px) {
@@ -74,6 +134,20 @@ body {
 /**
  * サイドバーエリアのレイアウト
  */
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 .c-more {
   margin: 0.5rem auto 0;
   width: clamp(720px, 55%, 50rem);
@@ -90,8 +164,6 @@ body {
 }
 .c-more a {
   cursor: pointer;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   display: block;
   padding: 5px 20px;
@@ -108,6 +180,20 @@ body {
   color: #ffffff;
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 .c-width {
   width: clamp(720px, 55%, 50rem);
   margin: 0 auto;
@@ -123,6 +209,20 @@ body {
   }
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 .c-text__red {
   color: #dd4040;
 }
@@ -136,6 +236,20 @@ body {
   flex-direction: column !important;
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 li a {
   height: auto;
   text-decoration: none;
@@ -159,6 +273,20 @@ li a:hover {
   }
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 .author .wp-site-blocks {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -174,7 +302,7 @@ li a:hover {
   grid-row: 3/4;
 }
 
-.p-posts.is-grid.columns-4 {
+.p-posts.is-grid.columns-4, .p-posts.is-layout-grid.columns-4 {
   display: grid;
   margin: 0 auto;
   grid-template-columns: 1fr 1fr 1fr 1fr !important;
@@ -182,14 +310,14 @@ li a:hover {
   width: clamp(720px, 55%, 50rem);
 }
 @media screen and (max-width: 768px) {
-  .p-posts.is-grid.columns-4 {
+  .p-posts.is-grid.columns-4, .p-posts.is-layout-grid.columns-4 {
     grid-template-columns: 1fr 1fr !important;
     width: 65%;
     grid-gap: 3rem;
   }
 }
 @media screen and (max-width: 480px) {
-  .p-posts.is-grid.columns-4 {
+  .p-posts.is-grid.columns-4, .p-posts.is-layout-grid.columns-4 {
     grid-template-columns: 1fr !important;
     width: 80%;
   }
@@ -243,10 +371,23 @@ li a:hover {
 .wp-block-latest-posts__featured-imageimg {
   height: 100%;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 .home .wp-block-query > ul {
   margin: 0 auto;
   display: grid;
@@ -268,7 +409,6 @@ li a:hover {
 }
 .home .wp-block-query > ul img {
   cursor: pointer;
-  margin-bottom: 1rem;
 }
 .home .wp-block-query > ul img:hover {
   transform: scale(1.1);
@@ -276,8 +416,28 @@ li a:hover {
 }
 .home .wp-block-query .wp-block-post-featured-image {
   aspect-ratio: 3/4;
+  margin-bottom: 1rem;
+}
+.home .wp-block-query .wp-block-post-featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 .p-logo {
   width: clamp(720px, 55%, 50rem);
   margin: 0 auto;
@@ -287,17 +447,53 @@ li a:hover {
 }
 @media screen and (max-width: 768px) {
   .p-logo {
-    width: 65%;
+    width: 86%;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem 0.875rem;
+    white-space: normal;
+  }
+  .p-logo > p {
+    margin: 0;
+    line-height: 1.5 !important;
+    text-align: center;
+    font-size: clamp(0.8125rem, 0.8rem + 0.5vw, 0.875rem);
+    letter-spacing: 0.03em;
+    padding: 0.75rem 0.5rem;
+    min-height: 2.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(62, 62, 62, 0.1);
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.55);
+    box-sizing: border-box;
+    word-break: break-word;
   }
 }
 @media screen and (max-width: 480px) {
   .p-logo {
-    grid-column-gap: 0;
-    width: 80%;
-    white-space: nomal;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.625rem 0.75rem;
+    width: 92%;
+  }
+  .p-logo > p {
+    min-height: 2.75rem;
+    padding: 0.625rem 0.5rem;
   }
 }
 
+@media screen and (max-width: 768px) {
+  #partner.wp-block-group .wp-block-heading.has-m-plus-1-p-font-family {
+    margin-bottom: 0.35rem;
+  }
+  #partner.wp-block-group .wp-block-heading + .wp-block-heading {
+    margin-top: 0;
+    font-size: clamp(1rem, 0.92rem + 0.6vw, 1.35rem) !important;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+  }
+}
 @media screen and (max-width: 768px) {
   .wp-container-core-group-is-layout-c3f67ce3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -309,11 +505,28 @@ li a:hover {
   }
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 header nav {
+  width: 100%;
+  max-width: 100%;
   line-height: 1.3;
 }
 @media screen and (max-width: 768px) {
   header nav {
+    width: auto;
     margin: 0 auto !important;
   }
 }
@@ -331,15 +544,38 @@ header nav ul {
   gap: 1rem !important;
   flex-grow: unset !important;
 }
-header .wp-block-navigation__responsive-container-content {
-  margin-bottom: 0.4rem;
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  header nav.wp-block-navigation.items-justified-right {
+    --navigation-layout-justification-setting: center;
+    --navigation-layout-justify: center;
+  }
 }
-@media (min-width: 601px) {
+header .wp-block-navigation__responsive-container-content {
+  margin-bottom: 0;
+}
+header .wp-block-navigation__responsive-dialog {
+  padding-right: 1.25rem !important;
+}
+@media screen and (max-width: 768px) {
+  header .wp-block-navigation__responsive-dialog {
+    padding-right: 0 !important;
+  }
+}
+header {
+  /* 600px以上：サブメニューもメインと同じ左→右の下線ホバー（テキスト幅のみ） */
+}
+@media (min-width: 600px) {
+  header .wp-block-navigation__submenu-container > .wp-block-navigation-item {
+    width: auto;
+  }
   header .wp-block-navigation__submenu-container > .wp-block-navigation-item > a.wp-block-navigation-item__content {
     height: auto;
     text-decoration: none;
     position: relative;
-    display: inline;
+    display: inline !important;
+    width: max-content !important;
+    max-width: 100%;
+    padding-inline: 0 !important;
     background-image: linear-gradient(#3e3e3e, #3e3e3e);
     background-repeat: no-repeat;
     background-size: 0% 1px;
@@ -359,14 +595,107 @@ header .wp-block-navigation:not(.has-background) .wp-block-navigation__submenu-c
   border: none;
 }
 header .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria-expanded=true] ~ .wp-block-navigation__submenu-container, header .wp-block-navigation .has-child:not(.open-on-click):hover > .wp-block-navigation__submenu-container {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   min-width: auto;
 }
-@media (min-width: 601px) {
+header .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+  padding-block: 0.625rem;
+}
+header {
+  /* PC：ホバーで表示 */
+}
+@media (min-width: 600px) {
   header .wp-block-navigation-item.has-child:hover > .wp-block-navigation__submenu-container {
     display: block;
+  }
+}
+header {
+  /* スマホ／ドロワー */
+}
+@media screen and (max-width: 600px) {
+  header .wp-block-navigation__responsive-container {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    background-color: transparent !important;
+    transform: none;
+    animation: none !important;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+  }
+  header .wp-block-navigation__responsive-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    clip-path: circle(0 at calc(100% - 1.75rem) 1.75rem);
+    transition: clip-path 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  header .wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-close {
+    opacity: 1;
+  }
+  header .wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+    transition: opacity 0.45s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open::before {
+    clip-path: circle(150% at calc(100% - 1.75rem) 1.75rem);
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item {
+    opacity: 1;
+    transform: none;
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item:nth-child(1) {
+    transition-delay: 0.14s;
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item:nth-child(2) {
+    transition-delay: 0.195s;
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item:nth-child(3) {
+    transition-delay: 0.25s;
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item:nth-child(4) {
+    transition-delay: 0.305s;
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item:nth-child(5) {
+    transition-delay: 0.36s;
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item:nth-child(6) {
+    transition-delay: 0.415s;
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item:nth-child(7) {
+    transition-delay: 0.47s;
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item:nth-child(8) {
+    transition-delay: 0.525s;
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item:nth-child(9) {
+    transition-delay: 0.58s;
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content > .wp-block-navigation__container > .wp-block-navigation-item:nth-child(10) {
+    transition-delay: 0.635s;
+  }
+}
+@media screen and (max-width: 600px) and (prefers-reduced-motion: reduce) {
+  header .wp-block-navigation__responsive-container,
+  header .wp-block-navigation__responsive-container .wp-block-navigation-item,
+  header .wp-block-navigation__responsive-container::before {
+    transition: none !important;
+    transform: none !important;
+    clip-path: none !important;
   }
 }
 @media screen and (max-width: 600px) {
@@ -387,13 +716,15 @@ header .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria
     flex-direction: column !important;
     text-align: left;
   }
+  header .wp-block-navigation__responsive-container.is-menu-open {
+    /* 全項目共通：左に文言列、右にくの字列（空でも確保して文字頭を揃える） */
+  }
   header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) 1.75rem;
     align-items: center !important;
     justify-items: start;
-    -moz-column-gap: 0.75rem;
-         column-gap: 0.75rem;
+    column-gap: 0.75rem;
     width: 100% !important;
     text-align: left;
     box-sizing: border-box;
@@ -410,6 +741,9 @@ header .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria
   header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item.has-child > a.wp-block-navigation-item__content {
     padding-right: 0 !important;
     min-width: 0;
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open {
+    /* くの字は右列 */
   }
   header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-icon.wp-block-navigation-submenu__toggle {
     grid-column: 2;
@@ -444,8 +778,11 @@ header .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria
   header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-icon.wp-block-navigation-submenu__toggle[aria-expanded=true]::after {
     transform: rotate(225deg);
   }
+  header .wp-block-navigation__responsive-container.is-menu-open {
+    /* サブメニュー：下へ全幅展開 */
+  }
   header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .has-child .wp-block-navigation__submenu-container {
-    grid-column: 1 / -1;
+    grid-column: 1/-1;
     grid-row: 2;
     position: static !important;
     left: auto !important;
@@ -500,8 +837,22 @@ header .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria
   display: none;
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 .p-project {
-  gap: 3rem;
+  gap: min(3.3333333333vw, 3rem);
 }
 .p-project > .wp-block-cover {
   width: 100%;
@@ -534,8 +885,6 @@ header .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria
   white-space: nowrap;
 }
 .p-project p {
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
   max-width: none;
   position: absolute;
@@ -546,11 +895,25 @@ header .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria
 }
 
 @media screen and (max-width: 768px) {
-  .wp-container-core-group-is-layout-b757edec {
+  .wp-container-core-group-is-layout-80b83375 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 .p-profile {
   width: clamp(720px, 55%, 50rem);
   margin: 0 auto;
@@ -558,12 +921,13 @@ header .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria
 @media screen and (max-width: 768px) {
   .p-profile {
     width: 65%;
-    top: -80px;
-    display: grid;
+    position: relative;
+    display: grid !important;
+    grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     grid-row-gap: 4rem;
     justify-items: center;
-    align-items: center;
+    align-items: start;
   }
 }
 @media screen and (max-width: 480px) {
@@ -584,14 +948,15 @@ header .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria
 .p-profile__figcaption > figure > img {
   width: 100%;
   height: clamp(300px, 80vw, 650px);
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 @media screen and (max-width: 768px) {
   .p-profile__figcaption {
     --wp--style--global--content-size: 100%;
     --wp--style--global--wide-size: 100%;
-    grid-row: 2/3;
+    display: block;
+    width: 100%;
+    grid-row: 2;
   }
   .p-profile__figcaption > figure {
     display: none;
@@ -610,7 +975,9 @@ header .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria
 }
 @media screen and (max-width: 768px) {
   .p-profile__textarea {
-    position: unset;
+    position: static;
+    top: auto;
+    right: auto;
     text-align: center;
     box-shadow: none;
     width: 100%;
@@ -627,8 +994,10 @@ header .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria
 }
 @media screen and (max-width: 768px) {
   .p-profile__photo {
-    grid-row: 1/1;
-    position: unset;
+    grid-row: 1;
+    position: static;
+    left: auto;
+    bottom: auto;
     justify-self: center;
     align-self: center;
     margin-left: auto !important;
@@ -640,6 +1009,20 @@ header .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria
   }
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 .p-footer {
   width: clamp(720px, 80%, 100rem);
   margin: 0 auto;
@@ -690,6 +1073,22 @@ header .wp-block-navigation .has-child .wp-block-navigation-submenu__toggle[aria
   .p-footer__address > h1 {
     margin-top: 1rem;
   }
+}
+.p-footer__address .wp-block-site-title {
+  width: fit-content;
+}
+.p-footer__address .wp-block-site-title a {
+  text-decoration: none;
+  position: relative;
+  display: inline;
+  background-image: linear-gradient(#3e3e3e, #3e3e3e), linear-gradient(#3e3e3e, #3e3e3e);
+  background-repeat: no-repeat;
+  background-size: 100% 1px, 0 2px;
+  background-position: 0 100%, 0 100%;
+  transition: background-size 1s ease;
+}
+.p-footer__address .wp-block-site-title a:hover {
+  background-size: 100% 1px, 100% 2px;
 }
 .p-footer__address > div {
   gap: 2rem;
@@ -763,52 +1162,88 @@ footer .wp-container-core-group-is-layout-fe9cc265 .wp-block-group-is-layout-fle
   gap: 0.5rem;
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+/* ヘッダー本体は流す。背景はページ先頭の見た目用 */
 .wp-site-blocks > .wp-block-template-part:has(.site-header) {
-  position: sticky;
-  top: 0;
-  z-index: 9999;
+  box-sizing: border-box;
   width: 100%;
+  max-width: 100%;
+  padding-right: 0 !important;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.js-nav-placeholder {
+  display: none;
+  flex-shrink: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* スクロール後：ナビだけ画面上端に固定（見た目は変えない） */
+header.site-header nav.is-nav-fixed,
+header nav.is-nav-fixed {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  height: auto !important;
+  overflow: visible;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+header.site-header,
 header {
   display: block !important;
-  padding-right: 1em !important;
 }
 @media screen and (max-width: 768px) {
+  header.site-header,
   header {
     display: flex !important;
-    padding-right: 0 !important;
     width: 100%;
   }
 }
 @media screen and (max-width: 480px) {
+  header.site-header,
   header {
     width: 100%;
   }
 }
-@media screen and (max-width: 768px) {
-  header > header {
-    margin: 0 1rem;
+@media screen and (min-width: 769px) {
+  header.site-header nav,
+  header nav {
+    margin-right: 4rem;
   }
 }
-header nav {
-  margin-right: 4rem;
-}
 @media screen and (max-width: 480px) {
+  header.site-header .wp-block-navigation__responsive-container-open,
   header .wp-block-navigation__responsive-container-open {
     height: 100%;
+    width: 48px;
+    justify-content: center;
   }
 }
+header.site-header .wp-block-navigation__responsive-container-open svg,
 header .wp-block-navigation__responsive-container-open svg {
-  width: 48px;
+  width: 20px;
   height: 48px;
 }
-@media screen and (max-width: 480px) {
-  header .wp-block-navigation__responsive-container-open svg {
-    width: 20px;
-  }
+header.site-header,
+header {
+  /* ばつボタンもハンバーガーと同じ見た目サイズに */
 }
+header.site-header .wp-block-navigation__responsive-container-close,
 header .wp-block-navigation__responsive-container-close {
   position: fixed;
   z-index: 100001;
@@ -816,30 +1251,36 @@ header .wp-block-navigation__responsive-container-close {
   align-items: center;
   justify-content: center;
 }
+header.site-header .wp-block-navigation__responsive-container-close svg,
 header .wp-block-navigation__responsive-container-close svg {
   width: 48px;
   height: 48px;
 }
 @media screen and (max-width: 480px) {
+  header.site-header .wp-block-navigation__responsive-container-close svg,
   header .wp-block-navigation__responsive-container-close svg {
     width: 20px;
     height: 20px;
   }
 }
+header.site-header rect,
 header rect {
   width: 32px;
 }
 @media screen and (max-width: 768px) {
+  header.site-header .c-title,
   header .c-title {
     margin: 0.8rem 0 !important;
   }
 }
 @media screen and (max-width: 768px) {
+  header.site-header .c-title > h1,
   header .c-title > h1 {
     padding-left: 0 !important;
     padding-top: 0 !important;
   }
 }
+header.site-header .c-title a,
 header .c-title a {
   height: auto;
   text-decoration: none;
@@ -853,14 +1294,62 @@ header .c-title a {
   position: relative;
 }
 @media screen and (max-width: 480px) {
+  header.site-header .c-title a,
   header .c-title a {
     font-size: 6vw;
   }
 }
+header.site-header .c-title a:hover,
 header .c-title a:hover {
   background-size: 100% 4px;
 }
 
+@media screen and (max-width: 767px) {
+  header.site-header {
+    padding-inline: 1rem !important;
+    margin: 0;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  header.site-header {
+    flex-wrap: wrap !important;
+    align-items: stretch !important;
+  }
+  header.site-header .c-title {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  header.site-header nav {
+    flex: 1 1 100% !important;
+    box-sizing: border-box;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-inline: calc(50% - 50vw) !important;
+    padding-inline: 0 !important;
+  }
+  header.site-header nav.is-nav-fixed {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+}
+
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 .p-news {
   backdrop-filter: blur(2.3px) saturate(156%);
   -webkit-backdrop-filter: blur(5px) saturate(156%);
@@ -889,8 +1378,39 @@ header .c-title a:hover {
   background-size: 100% 2px;
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+.wpcf7-list-item {
+  margin-left: 0;
+}
+.wpcf7-list-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+@media screen and (max-width: 768px) {
+  .wpcf7-list-item label {
+    align-items: flex-start;
+  }
+}
+.wpcf7-list-item label input {
+  width: 1rem;
+  height: 1rem;
+}
+
 .is-style-width__contact {
-  width: clamp(720px, 55%, 50rem);
   margin: 0 auto;
 }
 .is-style-width__contact form {
@@ -898,12 +1418,32 @@ header .c-title a:hover {
 }
 .is-style-width__contact input {
   width: 100%;
+  height: 1.25rem;
 }
 .is-style-width__contact textarea {
   width: 100%;
 }
 .is-style-width__contact p {
-  margin: 2rem 0 0;
+  margin: 1rem 0 0;
+}
+.is-style-width__contact .wpcf7-form-control-wrap {
+  display: block;
+}
+.is-style-width__contact .wpcf7-not-valid-tip {
+  display: block;
+  font-size: 10px;
+  line-height: 1.4;
+  margin: 0.25rem 0 0;
+  color: #dd4040;
+}
+.is-style-width__contact .wpcf7-response-output {
+  display: block;
+  font-size: 10px;
+  line-height: 1.4;
+  margin: 0.75rem 0 0.25rem;
+  padding: 0.4em 0;
+  border-width: 0;
+  color: #dd4040;
 }
 @media screen and (max-width: 768px) {
   .is-style-width__contact {
@@ -916,6 +1456,7 @@ header .c-title a:hover {
   width: 3.5rem;
   margin: 5rem auto 0;
   display: block;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
@@ -924,29 +1465,122 @@ header .c-title a:hover {
   }
 }
 
-.wp-block-query {
+.p-contact__consent .p-contact__consent-note {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  padding-left: 2em;
+}
+
+.p-contact__submit .wpcf7-submit {
+  width: 5.5rem;
+  height: 2.25rem;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #3e3e3e;
+  color: #ffffff;
+  border: 1px solid #3e3e3e;
+  border-radius: 2px;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.p-contact__submit .wpcf7-submit:hover {
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+.author .wp-site-blocks {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+.author header.wp-block-template-part {
+  grid-row: 1/2;
+}
+.author main,
+.author .wp-site-blocks > .wp-block-group.is-layout-constrained {
+  grid-row: 2/3;
+  --wp--style--global--content-size: 100%;
+  --wp--style--global--wide-size: 100%;
+}
+.author main > :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+.author .wp-site-blocks > .wp-block-group.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.author footer .wp-block-template-part,
+.author footer.wp-block-template-part {
+  grid-row: 3/4;
+}
+.author .wp-block-heading.has-text-align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.author .wp-block-query {
   font-size: 1rem;
 }
-.wp-block-query .is-layout-grid.columns-4 {
-  display: grid;
+.author .wp-block-post-template.columns-4,
+.author .wp-block-query ul.columns-4 {
+  display: grid !important;
   margin: 0 auto;
+  padding: 0 !important;
+  list-style: none;
   grid-template-columns: 1fr 1fr 1fr 1fr !important;
   grid-gap: 2rem;
   width: clamp(720px, 55%, 50rem);
 }
 @media screen and (max-width: 768px) {
-  .wp-block-query .is-layout-grid.columns-4 {
+  .author .wp-block-post-template.columns-4,
+  .author .wp-block-query ul.columns-4 {
     grid-template-columns: 1fr 1fr !important;
     width: 65%;
+    grid-gap: 3rem;
   }
 }
 @media screen and (max-width: 480px) {
-  .wp-block-query .is-layout-grid.columns-4 {
+  .author .wp-block-post-template.columns-4,
+  .author .wp-block-query ul.columns-4 {
     grid-template-columns: 1fr !important;
     width: 80%;
   }
 }
-.wp-block-query .columns-4 li a {
+.author .wp-block-post {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100% !important;
+}
+.author .wp-block-post > .wp-block-group,
+.author .wp-block-post .wp-block-group.is-layout-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  grid-template-columns: none !important;
+  gap: 0 !important;
+  width: 100%;
+}
+.author .wp-block-post .wp-block-group.is-vertical {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start;
+  width: 100%;
+}
+.author .wp-block-post a {
   height: auto;
   text-decoration: none;
   position: relative;
@@ -956,46 +1590,62 @@ header .c-title a:hover {
   background-size: 0% 1px;
   background-position: 0 100%;
   transition: background-size 1s ease;
-  position: relative;
   font-weight: 400;
   font-size: 1rem;
 }
-.wp-block-query .columns-4 li a:hover {
+.author .wp-block-post a:hover {
   background-size: 100% 1px;
 }
-.wp-block-query .wp-block-post-title {
+.author .wp-block-post-title {
+  margin: 0;
   text-decoration: none;
   display: inline-block;
-  -webkit-line-clamp: 4; /* 表示したい行数を指定（例：2行） */
-  line-clamp: 4; /* 表示したい行数を指定（例：2行） */
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
 }
-.wp-block-query .wp-block-post-featured-image {
+.author .wp-block-post-featured-image {
   width: 100%;
   aspect-ratio: 3/2;
   overflow: hidden;
-  margin-bottom: 1rem !important;
+  margin: 0 0 1rem !important;
   cursor: pointer;
 }
-.wp-block-query .wp-block-post-featured-image:hover {
+.author .wp-block-post-featured-image a,
+.author .wp-block-post-featured-image a:hover {
+  display: block !important;
+  width: 100%;
+  height: 100%;
+  background-image: none;
+  background-size: 0;
+}
+.author .wp-block-post-featured-image:hover {
   transform: scale(1.1);
   transition: all 0.3s ease-out;
 }
-.wp-block-query .wp-block-post-featured-imagea {
-  display: block;
+.author .wp-block-post-featured-image img {
   height: 100%;
   width: 100%;
-}
-.wp-block-query .wp-block-post-featured-imageimg {
-  height: 100%;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 .single-news .wp-site-blocks {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -1008,6 +1658,11 @@ header .c-title a:hover {
   grid-row: 2/3;
   width: clamp(720px, 80%, 100rem);
   margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+  .single-news main {
+    width: 80%;
+  }
 }
 .single-news footer .wp-block-template-part {
   grid-row: 3/4;
@@ -1026,6 +1681,20 @@ header .c-title a:hover {
   max-width: none;
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
 .single-books .wp-site-blocks {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -1038,6 +1707,11 @@ header .c-title a:hover {
   grid-row: 2/3;
   width: clamp(720px, 55%, 50rem);
   margin: auto;
+}
+@media screen and (max-width: 768px) {
+  .single-books main {
+    width: 80%;
+  }
 }
 .single-books footer .wp-block-template-part {
   grid-row: 3/4;
@@ -1055,77 +1729,89 @@ header .c-title a:hover {
   height: 50%;
 }
 
-.post-type-archive-books .wp-site-blocks {
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+.single-post .wp-site-blocks {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
-.post-type-archive-books header.wp-block-template-part {
+.single-post header.wp-block-template-part {
   grid-row: 1/2;
 }
-.post-type-archive-books main {
+.single-post main {
   grid-row: 2/3;
+  width: clamp(720px, 80%, 100rem);
+  margin: 5rem auto 8rem;
+  --wp--style--global--content-size: 100%;
+  --wp--style--global--wide-size: 100%;
 }
-.post-type-archive-books footer .wp-block-template-part {
+.single-post main.is-layout-constrained,
+.single-post main .is-layout-constrained {
+  --wp--style--global--content-size: 100%;
+  --wp--style--global--wide-size: 100%;
+}
+.single-post main.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+.single-post main .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.single-post footer .wp-block-template-part {
   grid-row: 3/4;
 }
-.post-type-archive-books .p-author__layout {
-  display: block;
+.single-post .wp-block-post-featured-image {
+  margin-bottom: 2rem;
 }
-.post-type-archive-books .wp-block-query > ul {
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  width: clamp(720px, 55%, 50rem);
-  grid-column-gap: 2rem;
-  grid-row-gap: 1rem;
-}
-@media screen and (max-width: 480px) {
-  .post-type-archive-books .wp-block-query > ul {
-    width: 80%;
-  }
-}
-.post-type-archive-books .wp-block-query > ul img {
-  cursor: pointer;
-  margin-bottom: 1rem;
-}
-.post-type-archive-books .wp-block-query > ul img:hover {
-  transform: scale(1.1);
-  transition: all 0.3s ease-out;
-}
-.post-type-archive-books .wp-block-post-title {
+.single-post .wp-block-post-featured-image img {
+  width: 100%;
   height: auto;
-  text-decoration: none;
-  position: relative;
-  display: inline;
-  background-image: linear-gradient(#3e3e3e, #3e3e3e);
-  background-repeat: no-repeat;
-  background-size: 0% 1px;
-  background-position: 0 100%;
-  transition: background-size 1s ease;
-  position: relative;
+  aspect-ratio: 3/2;
+  object-fit: cover;
 }
-.post-type-archive-books .wp-block-post-title:hover {
-  background-size: 100% 1px;
+.single-post .wp-block-post-title {
+  margin: 0 0 2.5rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 400;
 }
-@media (min-width: 600px) {
-  .post-type-archive-books {
-    width: 100%;
-  }
+.single-post .entry-content,
+.single-post > .wp-block-post-content {
+  --wp--style--global--content-size: 100%;
+  --wp--style--global--wide-size: 100%;
 }
-.post-type-archive-books .wp-block-post-featured-image {
-  aspect-ratio: 3/4;
+.single-post .entry-content h2,
+.single-post > .wp-block-post-content h2 {
+  margin: 2.5rem 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
 }
-
-/* ==========================================================================
-   Utility
-   ========================================================================== */
-/**
- * Utilityレイヤー
- * 汎用的なユーティリティクラスのスタイル
- */
-.u-margin__y0 {
-  margin: 0 auto !important;
+.single-post .entry-content p,
+.single-post .entry-content li,
+.single-post > .wp-block-post-content p,
+.single-post > .wp-block-post-content li {
+  font-size: 1rem;
+  line-height: 1.9;
+}
+.single-post .entry-content p,
+.single-post > .wp-block-post-content p {
+  margin: 0 0 1rem;
+}
+.single-post .entry-content ul,
+.single-post > .wp-block-post-content ul {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
 }
 
 /* ==========================================================================
@@ -1142,4 +1828,466 @@ header .c-title a:hover {
  *   Project   → プロジェクト固有のコンポーネントのスタイル
  *   Utility   → 汎用的なユーティリティクラスのスタイル
  */
+.post-type-archive-books .wp-site-blocks {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+.post-type-archive-books header.wp-block-template-part {
+  grid-row: 1/2;
+}
+.post-type-archive-books main {
+  grid-row: 2/3;
+}
+.post-type-archive-books footer.wp-block-template-part {
+  grid-row: 3/4;
+}
+.post-type-archive-books .p-author__layout {
+  display: block !important;
+}
+.post-type-archive-books .p-query__books-item {
+  display: flex;
+  flex-direction: column;
+}
+.post-type-archive-books .wp-block-query > ul {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: clamp(720px, 55%, 50rem);
+  grid-column-gap: 2rem;
+  grid-row-gap: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .post-type-archive-books .wp-block-query > ul {
+    grid-template-columns: 1fr 1fr;
+    width: 65%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .post-type-archive-books .wp-block-query > ul {
+    width: 80%;
+  }
+}
+.post-type-archive-books .wp-block-query > ul img {
+  cursor: pointer;
+}
+.post-type-archive-books .wp-block-query > ul img:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-out;
+}
+.post-type-archive-books .wp-block-query .wp-block-post-featured-image {
+  aspect-ratio: 3/4;
+  margin-bottom: 1rem;
+}
+.post-type-archive-books .wp-block-query .wp-block-post-featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.post-type-archive-books .wp-block-post-title {
+  height: auto;
+  text-decoration: none;
+  position: relative;
+  display: inline;
+  background-image: linear-gradient(#3e3e3e, #3e3e3e);
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  transition: background-size 1s ease;
+}
+.post-type-archive-books .wp-block-post-title:hover {
+  background-size: 100% 1px;
+}
+
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+.post-type-archive-news .wp-site-blocks {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+.post-type-archive-news header.wp-block-template-part {
+  grid-row: 1/2;
+}
+.post-type-archive-news main {
+  grid-row: 2/3;
+}
+.post-type-archive-news footer .wp-block-template-part {
+  grid-row: 3/4;
+}
+
+.p-archive-news {
+  width: clamp(720px, 55%, 50rem);
+  margin: 5rem auto 8rem;
+}
+@media screen and (max-width: 768px) {
+  .p-archive-news {
+    width: 80%;
+    margin: 4rem auto 6rem;
+  }
+}
+.p-archive-news > .wp-block-heading {
+  margin: 0 0 2rem;
+  font-size: clamp(15.197px, 0.95rem + (1vw - 3.2px) * 0.61, 23px);
+  font-weight: 400;
+  letter-spacing: 1.1px;
+}
+.p-archive-news .wp-block-query ul,
+.p-archive-news .wp-block-post-template {
+  display: block !important;
+  grid-template-columns: none !important;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.p-archive-news .wp-block-post {
+  margin: 0 0 1.25rem;
+}
+.p-archive-news .wp-block-post-title {
+  margin: 0;
+}
+.p-archive-news .wp-block-post-title a {
+  height: auto;
+  text-decoration: none;
+  position: relative;
+  display: inline;
+  background-image: linear-gradient(#3e3e3e, #3e3e3e);
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  transition: background-size 1s ease;
+}
+.p-archive-news .wp-block-post-title a:hover {
+  background-size: 100% 2px;
+}
+.p-archive-news .wp-block-post-date {
+  margin-top: 0.15rem;
+}
+
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+.error404 .wp-site-blocks {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+.error404 header.wp-block-template-part {
+  grid-row: 1/2;
+}
+.error404 main {
+  grid-row: 2/3;
+}
+.error404 footer .wp-block-template-part {
+  grid-row: 3/4;
+}
+
+.p-404 {
+  width: clamp(720px, 55%, 50rem);
+  margin: 5rem auto 8rem;
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .p-404 {
+    width: 80%;
+    margin: 4rem auto 6rem;
+  }
+}
+.p-404 h1 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 400;
+}
+.p-404 p {
+  margin: 0 0 2.5rem;
+  line-height: 1.8;
+}
+.p-404 .wp-block-button__link {
+  text-decoration: none;
+  padding: 5px 20px;
+  border-radius: 20px;
+  border: 1px solid #3e3e3e;
+  background: transparent;
+  color: #3e3e3e;
+}
+.p-404 .wp-block-button__link:hover {
+  background-color: #3e3e3e;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+.page .wp-site-blocks,
+.privacy-policy .wp-site-blocks {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+.page header.wp-block-template-part,
+.privacy-policy header.wp-block-template-part {
+  grid-row: 1/2;
+}
+.page main,
+.privacy-policy main {
+  grid-row: 2/3;
+}
+.page footer .wp-block-template-part,
+.privacy-policy footer .wp-block-template-part {
+  grid-row: 3/4;
+}
+
+.p-page {
+  width: clamp(720px, 55%, 50rem);
+  margin: 5rem auto 8rem;
+}
+@media screen and (max-width: 768px) {
+  .p-page {
+    width: 80%;
+    margin: 4rem auto 6rem;
+  }
+}
+.p-page .wp-block-post-title {
+  margin: 0 0 2.5rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 400;
+}
+.p-page .entry-content h2,
+.p-page > .wp-block-post-content h2 {
+  margin: 2.5rem 0 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.p-page .entry-content p,
+.p-page .entry-content li,
+.p-page > .wp-block-post-content p,
+.p-page > .wp-block-post-content li {
+  line-height: 1.9;
+}
+.p-page .entry-content p,
+.p-page > .wp-block-post-content p {
+  margin: 0 0 1rem;
+}
+.p-page .entry-content ul,
+.p-page > .wp-block-post-content ul {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+}
+
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+.u-margin__y0 {
+  margin: 0 auto !important;
+}
+
+.u-margin__112,
+.wp-block-heading + .wp-block-spacer,
+.wp-block-spacer[style*="height:112px"],
+.wp-block-spacer[style*=spacing--large] {
+  height: 3.5rem !important;
+}
+
+.u-margin__80,
+.wp-block-spacer[style*="height:80px"],
+.wp-block-spacer[style*=spacing--medium] {
+  height: 2.5rem !important;
+}
+
+.u-margin__48,
+.wp-block-spacer[style*="height:48px"],
+.wp-block-spacer[style*=spacing--small] {
+  height: 1.5rem !important;
+}
+
+@media screen and (max-width: 768px) {
+  .u-margin__112,
+  .wp-block-heading + .wp-block-spacer,
+  .wp-block-spacer[style*="height:112px"],
+  .wp-block-spacer[style*=spacing--large] {
+    height: 2.5rem !important;
+  }
+  .u-margin__80,
+  .wp-block-spacer[style*="height:80px"],
+  .wp-block-spacer[style*=spacing--medium] {
+    height: 1.75rem !important;
+  }
+  .u-margin__48,
+  .wp-block-spacer[style*="height:48px"],
+  .wp-block-spacer[style*=spacing--small] {
+    height: 1.125rem !important;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-margin__112,
+  .wp-block-heading + .wp-block-spacer,
+  .wp-block-spacer[style*="height:112px"],
+  .wp-block-spacer[style*=spacing--large] {
+    height: 2rem !important;
+  }
+  .u-margin__80,
+  .wp-block-spacer[style*="height:80px"],
+  .wp-block-spacer[style*=spacing--medium] {
+    height: 1.5rem !important;
+  }
+  .u-margin__48,
+  .wp-block-spacer[style*="height:48px"],
+  .wp-block-spacer[style*=spacing--small] {
+    height: 1rem !important;
+  }
+}
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+/* tab以下：余白を詰める */
+@media screen and (max-width: 768px) {
+  .is-frontend .wp-block-cover:has(.p-news) {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    padding-bottom: 16px !important;
+  }
+  .p-news {
+    padding-top: 1rem !important;
+    padding-bottom: 0.875rem !important;
+    padding-left: 0.875rem !important;
+    padding-right: 0.875rem !important;
+  }
+  .p-news .wp-block-heading {
+    margin-bottom: 0.75rem !important;
+  }
+  .c-width,
+  .c-more,
+  .p-logo,
+  .p-profile,
+  .p-footer,
+  .p-posts.is-grid.columns-4,
+  .home .wp-block-query > ul,
+  .post-type-archive-books .wp-block-query > ul,
+  .author .wp-block-post-template.columns-4,
+  .author .wp-block-query ul.columns-4,
+  .p-page,
+  .p-404,
+  .p-archive-news,
+  .single-books main,
+  .single-news main {
+    width: 86%;
+    max-width: 100%;
+  }
+  .single-post main {
+    width: 92%;
+    max-width: 100%;
+  }
+  .p-logo {
+    width: 86%;
+  }
+  .p-profile {
+    grid-row-gap: 2rem;
+  }
+  #profile ~ .wp-block-spacer {
+    height: 1.25rem !important;
+  }
+  .wp-block-spacer.u-margin__80:has(+ .p-profile) {
+    height: 1.25rem !important;
+  }
+  .p-posts.is-grid.columns-4,
+  .home .wp-block-query > ul,
+  .post-type-archive-books .wp-block-query > ul,
+  .author .wp-block-post-template.columns-4,
+  .author .wp-block-query ul.columns-4 {
+    grid-gap: 1.75rem !important;
+  }
+  .p-project {
+    gap: 1.5rem;
+  }
+  .p-page,
+  .p-404,
+  .p-archive-news,
+  .p-archive-author,
+  .single-post main {
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+  }
+  header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+    padding-top: 4rem !important;
+  }
+}
+@media screen and (max-width: 480px) {
+  .c-width,
+  .c-more,
+  .p-logo,
+  .p-profile,
+  .p-footer,
+  .p-posts.is-grid.columns-4,
+  .home .wp-block-query > ul,
+  .post-type-archive-books .wp-block-query > ul,
+  .author .wp-block-post-template.columns-4,
+  .author .wp-block-query ul.columns-4,
+  .p-page,
+  .p-404,
+  .p-archive-news,
+  .single-books main,
+  .single-news main {
+    width: 92%;
+  }
+  .single-post main {
+    width: 96%;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

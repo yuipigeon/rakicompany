@@ -5,12 +5,13 @@
   margin: 0 auto;
   @include tab{
     width: 65%;
-    top: -80px;
-    display: grid;    
+    position: relative;
+    display: grid !important;
+    grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     grid-row-gap: 4rem;
     justify-items: center;
-    align-items: center;
+    align-items: start;
   }
   @include sp {
     width: 80%;
@@ -33,7 +34,9 @@
     @include tab{
       --wp--style--global--content-size: 100%;
       --wp--style--global--wide-size: 100%;
-      grid-row: 2 / 3;
+      display: block;
+      width: 100%;
+      grid-row: 2;
       >figure{
         display: none;
       }
@@ -50,7 +53,9 @@
     padding: 1rem 0.5rem;
     box-shadow: 5px 4px 7px #0000002b;
     @include tab{
-      position: unset;
+      position: static;
+      top: auto;
+      right: auto;
       text-align: center;
       box-shadow: none;
       width: 100%;
@@ -65,8 +70,10 @@
     width: 16rem;
     bottom: -1vw;
     @include tab{
-      grid-row: 1 / 1;
-      position: unset;
+      grid-row: 1;
+      position: static;
+      left: auto;
+      bottom: auto;
       justify-self: center;
       align-self: center;
       margin-left: auto !important;

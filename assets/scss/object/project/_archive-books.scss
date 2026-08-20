@@ -12,12 +12,17 @@
   main {
     grid-row: 2 / 3;
   }
-  footer .wp-block-template-part {
+  footer.wp-block-template-part {
     grid-row: 3 / 4;
   }
 
   .p-author__layout {
-    display: block;
+    display: block !important;
+  }
+
+  .p-query__books-item {
+    display: flex;
+    flex-direction: column;
   }
 
   .wp-block-query {
@@ -28,17 +33,32 @@
       width: clamp(720px, 55%, 50rem);
       grid-column-gap: 2rem;
       grid-row-gap: 1rem;
+      @include tab {
+        grid-template-columns: 1fr 1fr;
+        width: 65%;
+      }
       @include sp {
         width: 80%;
       }
-      & img {
+
+      img {
         cursor: pointer;
-        margin-bottom: 1rem;
 
         &:hover {
           transform: scale(1.1);
           transition: all 0.3s ease-out;
         }
+      }
+    }
+
+    .wp-block-post-featured-image {
+      aspect-ratio: 3 / 4;
+      margin-bottom: 1rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }
@@ -53,16 +73,9 @@
     background-size: 0% 1px;
     background-position: 0 100%;
     transition: background-size 1s ease;
-    position: relative;
+
     &:hover {
       background-size: 100% 1px;
     }
-  }
-  @media (min-width: 600px) {
-    width: 100%;
-  }
-
-  .wp-block-post-featured-image {
-    aspect-ratio: 3/4;
   }
 }

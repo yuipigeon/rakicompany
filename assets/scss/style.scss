@@ -48,7 +48,14 @@
 @use "object/project/p-onlinecontents";
 @use "object/project/single-news";
 @use "object/project/single-books";
+@use "object/project/single-post";
 @use "object/project/archive-books";
+@use "object/project/archive-news";
+@use "object/project/p-404";
+@use "object/project/p-page";
 
 //utility
 @use "object/utility/u-margin";
+
+// tab以下の余白調整（最後に読み込み）
+@use "layout/tab";

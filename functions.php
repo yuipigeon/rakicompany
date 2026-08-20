@@ -279,3 +279,19 @@ function custom_block_styles() {
     );
 }
 add_action( 'init', 'custom_block_styles' );
+
+// Contact Form 7: 送信ボタンは常に押せる。未入力・未同意は送信後にエラー表示
+add_filter( 'wpcf7_contact_form_properties', function ( $properties ) {
+  $settings = isset( $properties['additional_settings'] ) ? $properties['additional_settings'] : '';
+  if ( strpos( $settings, 'acceptance_as_validation' ) === false ) {
+    $properties['additional_settings'] = trim( $settings . "\nacceptance_as_validation: on" );
+  }
+
+  if ( isset( $properties['messages'] ) && is_array( $properties['messages'] ) ) {
+    if ( empty( $properties['messages']['validation_error'] ) ) {
+      $properties['messages']['validation_error'] = '入力内容に不備があります。確認して再度送信してください。';
+    }
+  }
+
+  return $properties;
+} );
