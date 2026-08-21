@@ -478,6 +478,12 @@ li a:hover {
   grid-column-gap: 1rem;
   white-space: nowrap;
 }
+@media screen and (min-width: 769px) {
+  .p-logo > p {
+    min-height: 70px;
+    box-sizing: border-box;
+  }
+}
 @media screen and (max-width: 768px) {
   .p-logo {
     width: 86%;
@@ -514,6 +520,20 @@ li a:hover {
     min-height: 2.75rem;
     padding: 0.625rem 0.5rem;
   }
+}
+
+html:not(:lang(ja)) .p-logo,
+html.translated-ltr .p-logo,
+html[lang^=en] .p-logo {
+  white-space: normal;
+}
+html:not(:lang(ja)) .p-logo > p,
+html.translated-ltr .p-logo > p,
+html[lang^=en] .p-logo > p {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  text-align: center;
+  line-height: 1.5 !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -927,6 +947,42 @@ header {
   word-break: normal;
 }
 
+html.translated-ltr .p-project .wp-block-cover__inner-container,
+html[lang^=en]:not(:lang(ja)) .p-project .wp-block-cover__inner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.625rem, 2.5vw, 1rem);
+  padding: clamp(0.5rem, 2vw, 1rem);
+  box-sizing: border-box;
+}
+html.translated-ltr .p-project .wp-block-cover__inner-container .wp-block-heading,
+html.translated-ltr .p-project .wp-block-cover__inner-container p,
+html[lang^=en]:not(:lang(ja)) .p-project .wp-block-cover__inner-container .wp-block-heading,
+html[lang^=en]:not(:lang(ja)) .p-project .wp-block-cover__inner-container p {
+  position: static;
+  top: auto;
+  left: auto;
+  transform: none;
+  width: auto;
+  max-width: calc(100% - 1rem);
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  text-align: center;
+  box-sizing: border-box;
+  margin: 0;
+}
+html.translated-ltr .p-project .wp-block-cover__inner-container p,
+html[lang^=en]:not(:lang(ja)) .p-project .wp-block-cover__inner-container p {
+  line-height: 1.5;
+}
+html.translated-ltr .p-project .wp-block-cover__inner-container p:empty,
+html[lang^=en]:not(:lang(ja)) .p-project .wp-block-cover__inner-container p:empty {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
   .wp-container-core-group-is-layout-80b83375 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -950,6 +1006,24 @@ header {
 .p-profile {
   width: clamp(720px, 55%, 50rem);
   margin: 0 auto;
+}
+@media screen and (min-width: 769px) {
+  .p-profile {
+    position: relative;
+  }
+  .p-profile__figcaption {
+    position: relative;
+  }
+  .p-profile__grow {
+    display: block;
+    width: 100%;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 @media screen and (max-width: 768px) {
   .p-profile {
@@ -1005,6 +1079,8 @@ header {
   background-color: rgba(253, 253, 253, 0.631372549);
   padding: 1rem 0.5rem;
   box-shadow: 5px 4px 7px rgba(0, 0, 0, 0.168627451);
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 @media screen and (max-width: 768px) {
   .p-profile__textarea {

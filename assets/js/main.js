@@ -448,3 +448,90 @@ window.addEventListener("resize", closeDrawerIfDesktop);
     });
   });
 })();
+
+// 769px以上：absolute配置は維持しつつ、テキスト量に応じて下方向だけ伸ばす
+(function () {
+  const DESKTOP_MQ = window.matchMedia("(min-width: 769px)");
+  const profile = document.querySelector(".p-profile");
+  if (!profile) return;
+
+  const figcaption = profile.querySelector(".p-profile__figcaption");
+  const textarea = profile.querySelector(".p-profile__textarea");
+  const photo = profile.querySelector(".p-profile__photo");
+  if (!figcaption || !textarea) return;
+
+  let grow = profile.querySelector(".p-profile__grow");
+  if (!grow) {
+    grow = document.createElement("div");
+    grow.className = "p-profile__grow";
+    grow.setAttribute("aria-hidden", "true");
+    profile.appendChild(grow);
+  }
+
+  const pinPhoto = (hasOverflow) => {
+    if (!photo || !DESKTOP_MQ.matches || !hasOverflow) {
+      if (photo) {
+        photo.style.top = "";
+        photo.style.bottom = "";
+      }
+      return;
+    }
+
+    const offset = window.innerWidth * 0.01;
+    photo.style.top = `${
+      figcaption.offsetTop + figcaption.offsetHeight - photo.offsetHeight + offset
+    }px`;
+    photo.style.bottom = "auto";
+  };
+
+  const syncProfileGrow = () => {
+    grow.style.height = "0px";
+
+    if (!DESKTOP_MQ.matches) {
+      pinPhoto(false);
+      return;
+    }
+
+    const profileTop = profile.getBoundingClientRect().top;
+    const bottoms = [textarea.getBoundingClientRect().bottom];
+    if (photo) {
+      bottoms.push(photo.getBoundingClientRect().bottom);
+    }
+
+    const contentBottom = Math.max(...bottoms);
+    const requiredHeight = contentBottom - profileTop;
+    const currentHeight = profile.getBoundingClientRect().height;
+    const extra = Math.ceil(requiredHeight - currentHeight);
+
+    if (extra > 0) {
+      grow.style.height = `${extra}px`;
+    }
+
+    pinPhoto(extra > 0);
+  };
+
+  const schedule = () => requestAnimationFrame(syncProfileGrow);
+
+  schedule();
+  window.addEventListener("load", schedule);
+  window.addEventListener("resize", schedule);
+  if (DESKTOP_MQ.addEventListener) {
+    DESKTOP_MQ.addEventListener("change", schedule);
+  } else if (DESKTOP_MQ.addListener) {
+    DESKTOP_MQ.addListener(schedule);
+  }
+
+  if (typeof ResizeObserver !== "undefined") {
+    const observer = new ResizeObserver(schedule);
+    observer.observe(textarea);
+    observer.observe(figcaption);
+    if (photo) observer.observe(photo);
+  }
+
+  const mutationObserver = new MutationObserver(schedule);
+  mutationObserver.observe(textarea, {
+    childList: true,
+    subtree: true,
+    characterData: true,
+  });
+})();

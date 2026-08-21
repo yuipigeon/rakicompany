@@ -7,6 +7,13 @@
   grid-column-gap: 1rem;
   white-space: nowrap;
 
+  @media screen and (min-width: 769px) {
+    > p {
+      min-height: 70px;
+      box-sizing: border-box;
+    }
+  }
+
   @include tab {
     width: 86%;
     display: grid !important;
@@ -41,6 +48,21 @@
     > p {
       min-height: 2.75rem;
       padding: 0.625rem 0.5rem;
+    }
+  }
+}
+
+html:not(:lang(ja)),
+html.translated-ltr,
+html[lang^="en"] {
+  .p-logo {
+    white-space: normal;
+
+    > p {
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      text-align: center;
+      line-height: 1.5 !important;
     }
   }
 }

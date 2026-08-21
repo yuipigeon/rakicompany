@@ -39,6 +39,44 @@
   }
 }
 
+// 翻訳時：h4+pを1グループとして上下中央に配置。長くなったら上下余白が均等に縮む
+html.translated-ltr,
+html[lang^="en"]:not(:lang(ja)) {
+  .p-project .wp-block-cover__inner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.625rem, 2.5vw, 1rem);
+    padding: clamp(0.5rem, 2vw, 1rem);
+    box-sizing: border-box;
+
+    .wp-block-heading,
+    p {
+      position: static;
+      top: auto;
+      left: auto;
+      transform: none;
+      width: auto;
+      max-width: calc(100% - 1rem);
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      text-align: center;
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    p {
+      line-height: 1.5;
+    }
+
+    p:empty {
+      display: none;
+    }
+  }
+}
+
 .wp-container-core-group-is-layout-80b83375{
   @include tab{
     grid-template-columns: repeat(1, minmax(0, 1fr));
