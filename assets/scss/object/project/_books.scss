@@ -17,7 +17,6 @@
       }
       & img {
         cursor: pointer;
-        margin-bottom: 1rem;
 
         &:hover {
           transform: scale(1.1);
@@ -26,7 +25,14 @@
       }
     }
     & .wp-block-post-featured-image {
-      aspect-ratio: 3/4;
+      aspect-ratio: 3 / 4;
+      margin-bottom: 1rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 }

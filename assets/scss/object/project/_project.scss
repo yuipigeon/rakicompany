@@ -1,6 +1,6 @@
 @use "../../foundation/global/index" as *;
 .p-project {
-  gap: 3rem;
+  gap: min( calc(48 / 1440 * 100vw), 3rem);
   > .wp-block-cover {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -39,7 +39,7 @@
   }
 }
 
-.wp-container-core-group-is-layout-b757edec{
+.wp-container-core-group-is-layout-80b83375{
   @include tab{
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }

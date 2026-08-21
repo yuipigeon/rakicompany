@@ -1,5 +1,36 @@
 <!-- wp:template-part {"slug":"header","theme":"rakicompany","tagName":"header"} /-->
-<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
-<!-- wp:post-content /-->
+
+<!-- wp:group {"tagName":"main","className":"p-archive-news","layout":{"type":"constrained"}} -->
+<main class="wp-block-group p-archive-news">
+  <!-- wp:heading {"level":1,"fontFamily":"m-plus-1-p"} -->
+  <h1 class="wp-block-heading has-m-plus-1-p-font-family">NEWS</h1>
+  <!-- /wp:heading -->
+
+  <!-- wp:query {"queryId":21,"query":{"perPage":20,"pages":0,"offset":0,"postType":"news","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"namespace":"core/query"} -->
+  <div class="wp-block-query">
+    <!-- wp:post-template {"layout":{"type":"default"}} -->
+    <!-- wp:post-date {"style":{"typography":{"fontSize":"13px"}}} /-->
+    <!-- wp:post-title {"isLink":true,"style":{"typography":{"fontStyle":"normal","fontWeight":"700","letterSpacing":"-0.2px","fontSize":"clamp(0.875rem, 0.875rem + ((1vw - 0.2rem) * 0.156), 1rem)"},"spacing":{"margin":{"top":"0px","bottom":"0px"}}}} /-->
+    <!-- wp:post-excerpt {"moreText":"続きを読む"} /-->
+    <!-- wp:spacer {"height":"1.25rem"} -->
+    <div style="height: 1.25rem" aria-hidden="true" class="wp-block-spacer"></div>
+    <!-- /wp:spacer -->
+    <!-- /wp:post-template -->
+
+    <!-- wp:query-no-results -->
+    <!-- wp:paragraph -->
+    <p>お知らせはまだありません。</p>
+    <!-- /wp:paragraph -->
+    <!-- /wp:query-no-results -->
+
+    <!-- wp:query-pagination -->
+    <!-- wp:query-pagination-previous /-->
+    <!-- wp:query-pagination-numbers /-->
+    <!-- wp:query-pagination-next /-->
+    <!-- /wp:query-pagination -->
+  </div>
+  <!-- /wp:query -->
+</main>
 <!-- /wp:group -->
+
 <!-- wp:template-part {"slug":"footer","theme":"rakicompany","tagName":"footer"} /-->

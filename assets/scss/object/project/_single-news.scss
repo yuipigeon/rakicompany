@@ -1,3 +1,5 @@
+@use "../../foundation/global/index" as *;
+
 .single-news {
   .wp-site-blocks {
     display: grid;
@@ -11,6 +13,9 @@
     grid-row: 2 / 3;
     width: clamp(720px, 80%, 100rem);
     margin: 0 auto;
+    @include tab {
+      width: 80%;
+    }
   }
   footer .wp-block-template-part {
     grid-row: 3 / 4;

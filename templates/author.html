@@ -1,0 +1,60 @@
+<!-- wp:template-part {"slug":"header","theme":"rakicompany","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"p-archive-author","layout":{"type":"constrained"}} -->
+<main class="wp-block-group p-archive-author">
+  <!-- wp:spacer {"height":"var(--wp--preset--spacing--large)","className":"u-margin__112"} -->
+  <div
+    style="height: var(--wp--preset--spacing--large)"
+    aria-hidden="true"
+    class="wp-block-spacer u-margin__112"
+  ></div>
+  <!-- /wp:spacer -->
+
+  <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"letterSpacing":"1.1px"}},"textColor":"primary","fontFamily":"m-plus-1-p"} -->
+  <h1
+    class="wp-block-heading has-text-align-center has-primary-color has-text-color has-m-plus-1-p-font-family"
+  >
+    Online contents All
+  </h1>
+  <!-- /wp:heading -->
+
+  <!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"fontSize":"clamp(15.747px, 0.984rem + ((1vw - 3.2px) * 0.645), 24px)"}},"textColor":"primary"} -->
+  <h2
+    class="wp-block-heading has-text-align-center has-primary-color has-text-color"
+  >
+    –  全てのオンライン記事 –
+  </h2>
+  <!-- /wp:heading -->
+
+  <!-- wp:spacer {"height":"var(--wp--preset--spacing--large)","className":"u-margin__112"} -->
+  <div
+    style="height: var(--wp--preset--spacing--large)"
+    aria-hidden="true"
+    class="wp-block-spacer u-margin__112"
+  ></div>
+  <!-- /wp:spacer -->
+
+  <!-- wp:query {"queryId":22,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true}} -->
+  <div class="wp-block-query">
+    <!-- wp:post-template {"className":"p-posts is-grid","layout":{"type":"grid","columnCount":4}} -->
+    <!-- wp:post-featured-image {"isLink":true} /-->
+    <!-- wp:post-title {"isLink":true,"fontSize":"small"} /-->
+    <!-- /wp:post-template -->
+
+    <!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
+    <!-- wp:query-pagination-previous /-->
+    <!-- wp:query-pagination-numbers /-->
+    <!-- wp:query-pagination-next /-->
+    <!-- /wp:query-pagination -->
+
+    <!-- wp:query-no-results -->
+    <!-- wp:paragraph {"align":"center"} -->
+    <p class="has-text-align-center">記事はまだありません。</p>
+    <!-- /wp:paragraph -->
+    <!-- /wp:query-no-results -->
+  </div>
+  <!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"rakicompany","tagName":"footer"} /-->

@@ -17,24 +17,40 @@
   }
 }
 .p-posts {
-  &.is-grid.columns-4 {
-    display: grid;
+  &.is-grid.columns-4,
+  &.is-layout-grid.columns-4 {
+    display: grid !important;
     margin: 0 auto;
+    padding: 0 !important;
+    list-style: none;
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
     grid-gap: 2rem;
     width: clamp(720px, 55%, 50rem);
-    @include tab{
+
+    @include tab {
       grid-template-columns: 1fr 1fr !important;
       width: 65%;
       grid-gap: 3rem;
     }
-    @include sp{
+    @include sp {
       grid-template-columns: 1fr !important;
       width: 80%;
     }
+
+    > li {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+      width: auto !important;
+      max-width: none !important;
+      margin: 0 !important;
+    }
   }
+
   &.columns-4 li {
-    & a {
+    a.wp-block-latest-posts__post-title {
+      height: auto;
       text-decoration: none;
       position: relative;
       display: inline;
@@ -43,44 +59,60 @@
       background-size: 0% 1px;
       background-position: 0 100%;
       transition: background-size 1s ease;
-      position: relative;
+      font-weight: 400;
+      font-size: 1rem;
 
       &:hover {
         background-size: 100% 1px;
       }
     }
-    @media (min-width: 600px) {
-      width: 100%;
-    }
   }
 }
+
 .wp-block-latest-posts {
   &__post-title {
+    margin: 0;
     text-decoration: none;
     display: inline-block;
-    -webkit-line-clamp: 4; /* 表示したい行数を指定（例：2行） */
-    line-clamp: 4; /* 表示したい行数を指定（例：2行） */
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     cursor: pointer;
   }
+
   &__featured-image {
+    position: relative;
     width: 100%;
     aspect-ratio: 3 / 2;
     overflow: hidden;
     margin-bottom: 1rem;
     cursor: pointer;
+
+    &:not(:has(img)) {
+      display: none;
+    }
+
+    a,
+    a:hover {
+      display: contents;
+      background-image: none;
+      background-size: 0;
+    }
+
+    a:empty {
+      display: none !important;
+    }
+
     &:hover {
       transform: scale(1.1);
       transition: all 0.3s ease-out;
     }
-    &a {
-      display: block;
-      height: 100%;
-      width: 100%;
-    }
-    &img {
+
+    img {
+      position: absolute;
+      inset: 0;
       height: 100%;
       width: 100%;
       object-fit: cover;

@@ -1,48 +1,59 @@
 @use "../../foundation/global/index" as *;
 
-/* 追従ヘッダー（常に白・半透明） */
+/* ヘッダー本体は流す。背景はページ先頭の見た目用 */
 .wp-site-blocks > .wp-block-template-part:has(.site-header) {
-  position: sticky;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 0 !important;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.js-nav-placeholder {
+  display: none;
+  flex-shrink: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* スクロール後：ナビだけ画面上端に固定（見た目は変えない） */
+header.site-header nav.is-nav-fixed,
+header nav.is-nav-fixed {
+  position: fixed;
   top: 0;
   z-index: 9999;
-  width: 100%;
+  height: auto !important;
+  overflow: visible;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
 header.site-header,
 header {
   display: block !important;
-  padding-right: 1em !important;
   
   @include tab{
     display: flex !important;  
-    padding-right: 0 !important;
     width: 100%;
   }
   @include sp{
     width: 100%;
   }
-  
-  >header{
-    @include tab{
-      margin: 0 1rem
-    }
-  }
 
   nav {
-    margin-right: 4rem;
+    @media screen and (min-width: ($tab + 1px)) {
+      margin-right: 4rem;
+    }
   }
 
   .wp-block-navigation__responsive-container-open {
     @include sp{
       height: 100%;
+      width: 48px;
+      justify-content: center;
     }
     svg {
-      width: 48px;
+      width: 20px;
       height: 48px;
-      @include sp{
-        width: 20px;
-      }
     }
   }
 
@@ -69,6 +80,9 @@ header {
   }
 
   .c-title {
+    @media screen and (min-width: ($tab + 1px)) {
+      margin-bottom: -0.625rem;
+    }
     @include tab{
       margin: 0.8rem 0 !important;
     }
@@ -98,4 +112,38 @@ header {
   }
 }
   
+}
+
+header.site-header {
+  @media screen and (max-width: ($tab - 1px)) {
+    padding-inline: 1rem !important;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 600px) and (max-width: $tab) {
+    flex-wrap: wrap !important;
+    align-items: stretch !important;
+
+    .c-title {
+      flex: 1 1 100%;
+      width: 100%;
+    }
+
+    nav {
+      flex: 1 1 100% !important;
+      box-sizing: border-box;
+      width: 100vw !important;
+      max-width: 100vw !important;
+      margin-inline: calc(50% - 50vw) !important;
+      padding-inline: 0 !important;
+
+      &.is-nav-fixed {
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+      }
+    }
+  }
 }

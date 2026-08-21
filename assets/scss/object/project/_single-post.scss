@@ -1,0 +1,78 @@
+@use "../../foundation/global/index" as *;
+
+.single-post {
+  .wp-site-blocks {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+  header.wp-block-template-part {
+    grid-row: 1 / 2;
+  }
+  main {
+    grid-row: 2 / 3;
+    width: clamp(720px, 80%, 100rem);
+    margin: 5rem auto 8rem;
+    --wp--style--global--content-size: 100%;
+    --wp--style--global--wide-size: 100%;
+
+    &.is-layout-constrained,
+    .is-layout-constrained {
+      --wp--style--global--content-size: 100%;
+      --wp--style--global--wide-size: 100%;
+    }
+
+    &.is-layout-constrained
+      > :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+    .is-layout-constrained
+      > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+      max-width: none !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+  footer .wp-block-template-part {
+    grid-row: 3 / 4;
+  }
+
+  .wp-block-post-featured-image {
+    margin-bottom: 2rem;
+
+    img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+  }
+
+  .wp-block-post-title {
+    margin: 0 0 2.5rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 400;
+  }
+
+  .entry-content,
+  > .wp-block-post-content {
+    --wp--style--global--content-size: 100%;
+    --wp--style--global--wide-size: 100%;
+
+    h2 {
+      margin: 2.5rem 0 1rem;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+    p,
+    li {
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+    p {
+      margin: 0 0 1rem;
+    }
+    ul {
+      margin: 0 0 1.5rem;
+      padding-left: 1.25rem;
+    }
+  }
+}

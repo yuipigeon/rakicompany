@@ -10,13 +10,45 @@
 
 // NEWS背景白のエリア
 .is-frontend {
+  .wp-block-cover:has(.p-news) {
+    @media screen and (min-width: ($tab + 1px)) {
+      min-height: calc(100vh - var(--header-height, 6.5rem)) !important;
+      height: calc(100vh - var(--header-height, 6.5rem)) !important;
+      aspect-ratio: unset !important;
+      box-sizing: border-box;
+      align-items: flex-end;
+      margin-top: 0 !important;
+      margin-bottom: 0;
+
+      > .wp-block-cover__inner-container > .wp-block-spacer {
+        display: none;
+      }
+    }
+    @include tab {
+      min-height: calc(100svh - var(--header-height, 6.5rem)) !important;
+      height: calc(100svh - var(--header-height, 6.5rem));
+      aspect-ratio: unset !important;
+      align-items: flex-end;
+      padding-bottom: 20px !important;
+
+      > .wp-block-cover__inner-container > .wp-block-spacer {
+        display: none;
+      }
+
+      .p-news {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+
   .wp-block-cover .wp-block-group {
     width: clamp(18.75rem, 45%, 46.88rem);
     display: flex;
     justify-self: right;
     flex-direction: column;
     @include tab{
-      width: 81%;
+      width: 100%;
     }
     @include sp{
       justify-self: center;

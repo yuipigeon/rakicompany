@@ -1,29 +1,91 @@
 @use "../../foundation/global/index" as *;
 
+
+.wpcf7-list-item {
+  margin-left: 0;
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    @include tab{
+      align-items: flex-start;
+    }
+    input {
+      width: 1.125rem;
+      height: 1.125rem;
+      flex-shrink: 0;
+    }
+  }
+}
+
 .is-style-width__contact {
   width: clamp(720px, 55%, 50rem);
+  max-width: 100%;
   margin: 0 auto;
+  --wp--style--global--content-size: 100%;
+  --wp--style--global--wide-size: 100%;
+
+  > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    max-width: none;
+  }
   form {
     margin: 0 auto;
+    font-size: 1.125rem;
   }
-  input {
-    width: 100%;
+  label,
+  .c-validation {
+    font-size: 1.125rem;
   }
+  input:not([type="checkbox"]):not([type="submit"]),
   textarea {
     width: 100%;
+    height: 2.25rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 1.0625rem;
+    box-sizing: border-box;
+
+    &::placeholder {
+      font-size: 1.0625rem;
+    }
+  }
+  textarea {
+    height: auto;
+    min-height: 8.5rem;
   }
   p {
-    margin: 2rem 0 0;
+    margin: 1rem 0 0;
+  }
+
+  .wpcf7-form-control-wrap {
+    display: block;
+  }
+
+  .wpcf7-not-valid-tip {
+    display: block;
+    font-size: 10px;
+    line-height: 1.4;
+    margin: 0.25rem 0 0;
+    color: $color-red;
+  }
+
+  .wpcf7-response-output {
+    display: block;
+    font-size: 10px;
+    line-height: 1.4;
+    margin: 0.75rem 0 0.25rem;
+    padding: 0.4em 0;
+    border-width: 0;
+    color: $color-red;
   }
   @include tab{
-    width: 100%;
-    --wp--style--global--content-size: 70%;
-    --wp--style--global--wide-size: 70%;
+    width: 65%;
+    --wp--style--global--content-size: 100%;
+    --wp--style--global--wide-size: 100%;
   }
   .wpcf7-submit {
-    width: 3.5rem;
     margin: 5rem auto 0;
     display: block;
+    cursor: pointer;
   }
 }
 
@@ -33,3 +95,29 @@
         height: 0 !important;
     }
   }
+
+.p-contact__consent .p-contact__consent-note {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  padding-left: 2em;
+}
+
+.p-contact__submit .wpcf7-submit {
+  width: 6.5rem;
+  height: 2.5rem;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: $color-black;
+  color: $color-white;
+  border: 1px solid $color-black;
+  border-radius: 2px;
+  font-size: 1.125rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

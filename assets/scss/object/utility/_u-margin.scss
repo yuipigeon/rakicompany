@@ -1,17 +1,69 @@
-/* ==========================================================================
-   Utility
-   ========================================================================== */
-
-/**
- * Utilityレイヤー
- * 汎用的なユーティリティクラスのスタイル
- */
-
-// マージン、パディング、テキスト配置などのユーティリティクラス
-// 例: .u-mt-10, .u-text-center など
+@use "../../foundation/global/index" as *;
 
 .u-margin {
   &__y0 {
     margin: 0 auto !important;
+  }
+}
+
+// 見出し下・セクション間スペーサー（112px / 80px / 48px）
+.u-margin__112,
+.wp-block-heading + .wp-block-spacer,
+.wp-block-spacer[style*="height:112px"],
+.wp-block-spacer[style*="spacing--large"] {
+  height: 3.5rem !important;
+}
+
+.u-margin__80,
+.wp-block-spacer[style*="height:80px"],
+.wp-block-spacer[style*="spacing--medium"] {
+  height: 2.5rem !important;
+}
+
+.u-margin__48,
+.wp-block-spacer[style*="height:48px"],
+.wp-block-spacer[style*="spacing--small"] {
+  height: 1.5rem !important;
+}
+
+@include tab {
+  .u-margin__112,
+  .wp-block-heading + .wp-block-spacer,
+  .wp-block-spacer[style*="height:112px"],
+  .wp-block-spacer[style*="spacing--large"] {
+    height: 2.5rem !important;
+  }
+
+  .u-margin__80,
+  .wp-block-spacer[style*="height:80px"],
+  .wp-block-spacer[style*="spacing--medium"] {
+    height: 1.75rem !important;
+  }
+
+  .u-margin__48,
+  .wp-block-spacer[style*="height:48px"],
+  .wp-block-spacer[style*="spacing--small"] {
+    height: 1.125rem !important;
+  }
+}
+
+@include sp {
+  .u-margin__112,
+  .wp-block-heading + .wp-block-spacer,
+  .wp-block-spacer[style*="height:112px"],
+  .wp-block-spacer[style*="spacing--large"] {
+    height: 2rem !important;
+  }
+
+  .u-margin__80,
+  .wp-block-spacer[style*="height:80px"],
+  .wp-block-spacer[style*="spacing--medium"] {
+    height: 1.5rem !important;
+  }
+
+  .u-margin__48,
+  .wp-block-spacer[style*="height:48px"],
+  .wp-block-spacer[style*="spacing--small"] {
+    height: 1rem !important;
   }
 }

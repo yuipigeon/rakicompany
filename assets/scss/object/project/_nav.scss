@@ -2,8 +2,11 @@
 
 header {
     nav {
+      width: 100%;
+      max-width: 100%;
       line-height: 1.3;
       @include tab{
+        width: auto ;
         margin: 0 auto !important;
       }
       @include sp-tab{
@@ -18,30 +21,49 @@ header {
             gap: 1rem !important;
             flex-grow: unset !important;
         }
+
+      @media screen and (min-width: 600px) and (max-width: 768px) {
+        &.wp-block-navigation.items-justified-right {
+          --navigation-layout-justification-setting: center;
+          --navigation-layout-justify: center;
+        }
+      }
     }
     .wp-block-navigation__responsive-container-content{
-      margin-bottom: 0.4rem;
+      margin-bottom: 0;
     }
 
-    /* 600px以上：サブメニューもメインと同じ左→右の下線ホバー */
-    @media (min-width: 601px) {
+    .wp-block-navigation__responsive-dialog {
+      padding-right: 1.25rem !important;
+      @include tab{
+        padding-right: 0 !important;
+      }
+    }
+    /* 600px以上：サブメニューもメインと同じ左→右の下線ホバー（テキスト幅のみ） */
+    @media (min-width: 600px) {
       .wp-block-navigation__submenu-container
-        > .wp-block-navigation-item
-        > a.wp-block-navigation-item__content {
-        height: auto;
-        text-decoration: none;
-        position: relative;
-        display: inline;
-        background-image: linear-gradient($color-black, $color-black);
-        background-repeat: no-repeat;
-        background-size: 0% 1px;
-        background-position: 0 100%;
-        transition: background-size 1s ease;
+        > .wp-block-navigation-item {
+        width: auto;
 
-        &:hover {
+        > a.wp-block-navigation-item__content {
+          height: auto;
+          text-decoration: none;
+          position: relative;
+          display: inline !important;
+          width: max-content !important;
+          max-width: 100%;
+          padding-inline: 0 !important;
           background-image: linear-gradient($color-black, $color-black);
-          background-size: 100% 1px;
+          background-repeat: no-repeat;
+          background-size: 0% 1px;
           background-position: 0 100%;
+          transition: background-size 1s ease;
+
+          &:hover {
+            background-image: linear-gradient($color-black, $color-black);
+            background-size: 100% 1px;
+            background-position: 0 100%;
+          }
         }
       }
     }
@@ -59,8 +81,13 @@ header {
       min-width: auto;
     }
 
+  
+    .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+      padding-block: 0.625rem;
+      }
+
 /* PC：ホバーで表示 */
-@media (min-width: 601px) {
+@media (min-width: 600px) {
   .wp-block-navigation-item.has-child:hover > .wp-block-navigation__submenu-container {
       display: block;
   }
@@ -68,6 +95,82 @@ header {
 
 /* スマホ／ドロワー */
 @include sp-tab {
+  .wp-block-navigation__responsive-container {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    background-color: transparent !important;
+    transform: none;
+    animation: none !important;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-color: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
+      clip-path: circle(0 at calc(100% - 1.75rem) 1.75rem);
+      transition: clip-path 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .wp-block-navigation__responsive-container-close {
+      opacity: 1;
+    }
+
+    .wp-block-navigation__responsive-container-content
+      > .wp-block-navigation__container
+      > .wp-block-navigation-item {
+      opacity: 0;
+      transform: translate3d(0, 16px, 0);
+      transition: opacity 0.45s ease,
+        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &.is-menu-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+
+      &::before {
+        clip-path: circle(150% at calc(100% - 1.75rem) 1.75rem);
+      }
+
+      .wp-block-navigation__responsive-container-content
+        > .wp-block-navigation__container
+        > .wp-block-navigation-item {
+        opacity: 1;
+        transform: none;
+      }
+
+      @for $i from 1 through 10 {
+        .wp-block-navigation__responsive-container-content
+          > .wp-block-navigation__container
+          > .wp-block-navigation-item:nth-child(#{$i}) {
+          transition-delay: #{0.14s + ($i - 1) * 0.055s};
+        }
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wp-block-navigation__responsive-container,
+    .wp-block-navigation__responsive-container
+      .wp-block-navigation-item,
+    .wp-block-navigation__responsive-container::before {
+      transition: none !important;
+      transform: none !important;
+      clip-path: none !important;
+    }
+  }
+
   .wp-block-navigation__responsive-container.is-menu-open {
     .wp-block-navigation__responsive-container-content {
       padding-top: 5.5rem !important;
