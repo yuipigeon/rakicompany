@@ -28,17 +28,23 @@ add_filter('body_class', function ($classes) {
 // 固定ページでも抜粋欄を使えるようにする
 add_post_type_support( 'page', 'excerpt' );
 
-//アイキャッチ画像クリックで外部リンクへ
+//アイキャッチ画像クリックで外部リンクへ（既にaがある場合は包まず href だけ差し替え）
 function custom_post_thumbnail_external_link( $html, $post_id ) {
-    // 投稿のカスタムフィールドから外部リンクを取得
     $external_link = get_post_meta( $post_id, 'external_link', true );
-  
-    // 外部リンクが設定されている場合
-    if ( $external_link ) {
-      $html = '<a href="' . esc_url( $external_link ) . '" target="_blank" rel="noopener noreferrer">' . $html . '</a>';
+    if ( ! $external_link || $html === '' ) {
+      return $html;
     }
-  
-    return $html;
+
+    if ( strpos( $html, '<a ' ) !== false ) {
+      return preg_replace(
+        '/(<a\s[^>]*href=["\'])[^"\']*(["\'])/',
+        '$1' . esc_url( $external_link ) . '$2 target="_blank" rel="noopener noreferrer"',
+        $html,
+        1
+      );
+    }
+
+    return '<a href="' . esc_url( $external_link ) . '" target="_blank" rel="noopener noreferrer">' . $html . '</a>';
   }
   add_filter( 'post_thumbnail_html', 'custom_post_thumbnail_external_link', 10, 2 );
   function custom_post_title_external_link( $title, $post_id ) {

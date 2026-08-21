@@ -56,14 +56,23 @@ const DRAWER_MAX_WIDTH = 599;
     ".wp-site-blocks > .wp-block-template-part"
   );
   if (!header) return;
+
   const setHeaderHeight = () => {
+    const cover = document.querySelector(
+      ".is-frontend .wp-block-cover:has(.p-news)"
+    );
+    const headerH = cover
+      ? cover.getBoundingClientRect().top + window.scrollY
+      : header.offsetHeight;
     document.documentElement.style.setProperty(
       "--header-height",
-      `${header.offsetHeight}px`
+      `${Math.max(0, headerH)}px`
     );
   };
+
   setHeaderHeight();
   window.addEventListener("resize", setHeaderHeight);
+  window.addEventListener("load", setHeaderHeight);
 })();
 
 let lockedScrollY = 0;

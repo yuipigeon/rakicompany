@@ -80,6 +80,9 @@ header {
   }
 
   .c-title {
+    @media screen and (min-width: ($tab + 1px)) {
+      margin-bottom: -0.625rem;
+    }
     @include tab{
       margin: 0.8rem 0 !important;
     }

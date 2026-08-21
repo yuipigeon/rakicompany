@@ -26,6 +26,7 @@
   .p-logo,
   .p-profile,
   .p-footer,
+  .is-style-width__contact,
   .p-posts.is-grid.columns-4,
   .home .wp-block-query > ul,
   .post-type-archive-books .wp-block-query > ul,
@@ -34,6 +35,8 @@
   .p-page,
   .p-404,
   .p-archive-news,
+  .post-type-archive-news main,
+  .post-type-archive-news .wp-block-query,
   .single-books main,
   .single-news main {
     width: 86%;
@@ -96,6 +99,7 @@
   .p-logo,
   .p-profile,
   .p-footer,
+  .is-style-width__contact,
   .p-posts.is-grid.columns-4,
   .home .wp-block-query > ul,
   .post-type-archive-books .wp-block-query > ul,
@@ -104,6 +108,8 @@
   .p-page,
   .p-404,
   .p-archive-news,
+  .post-type-archive-news main,
+  .post-type-archive-news .wp-block-query,
   .single-books main,
   .single-news main {
     width: 92%;

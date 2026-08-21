@@ -11,39 +11,62 @@
   }
   main {
     grid-row: 2 / 3;
+    width: clamp(720px, 80%, 100rem);
+    margin: 0 auto;
+    @include tab {
+      width: 80%;
+    }
+  }
+
+  // エディター版は main がなく、グループ→クエリ。幅はクエリだけ（入れ子で狭くしない）
+  .wp-site-blocks > .wp-block-group.is-layout-flow {
+    grid-row: 2 / 3;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .wp-block-query {
+    width: clamp(720px, 80%, 100rem);
+    margin: 0 auto;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    @include tab {
+      width: 80%;
+    }
   }
   footer .wp-block-template-part {
     grid-row: 3 / 4;
   }
-}
 
-.p-archive-news {
-  width: clamp(720px, 55%, 50rem);
-  margin: 5rem auto 8rem;
+  .is-layout-constrained,
+  .wp-block-post-template.is-layout-constrained {
+    --wp--style--global--content-size: 100%;
+    --wp--style--global--wide-size: 100%;
 
-  @include tab {
-    width: 80%;
-    margin: 4rem auto 6rem;
-  }
-
-  > .wp-block-heading {
-    margin: 0 0 2rem;
-    font-size: clamp(15.197px, 0.95rem + ((1vw - 3.2px) * 0.61), 23px);
-    font-weight: 400;
-    letter-spacing: 1.1px;
+    > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+      max-width: none !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
   }
 
   .wp-block-query ul,
   .wp-block-post-template {
     display: block !important;
     grid-template-columns: none !important;
+    width: 100% !important;
+    max-width: none !important;
     margin: 0;
-    padding: 0;
+    padding: 0 ;
     list-style: none;
   }
 
   .wp-block-post {
     margin: 0 0 1.25rem;
+    max-width: none !important;
   }
 
   .wp-block-post-title {
@@ -67,6 +90,33 @@
   }
 
   .wp-block-post-date {
-    margin-top: 0.15rem;
+    margin: 0 0 0.25rem;
+  }
+
+  .wp-block-post-excerpt {
+    margin-top: 0.35rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  .wp-block-post-excerpt__more-link {
+    display: inline;
+    text-decoration: none;
+  }
+}
+
+.p-archive-news {
+  width: 100%;
+  margin: 5rem auto 8rem;
+
+  @include tab {
+    margin: 4rem auto 6rem;
+  }
+
+  > .wp-block-heading {
+    margin: 0 0 2rem;
+    font-size: clamp(15.197px, 0.95rem + ((1vw - 3.2px) * 0.61), 23px);
+    font-weight: 400;
+    letter-spacing: 1.1px;
   }
 }

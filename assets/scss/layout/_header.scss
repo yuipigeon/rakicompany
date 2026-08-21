@@ -11,6 +11,19 @@
 // NEWS背景白のエリア
 .is-frontend {
   .wp-block-cover:has(.p-news) {
+    @media screen and (min-width: ($tab + 1px)) {
+      min-height: calc(100vh - var(--header-height, 6.5rem)) !important;
+      height: calc(100vh - var(--header-height, 6.5rem)) !important;
+      aspect-ratio: unset !important;
+      box-sizing: border-box;
+      align-items: flex-end;
+      margin-top: 0 !important;
+      margin-bottom: 0;
+
+      > .wp-block-cover__inner-container > .wp-block-spacer {
+        display: none;
+      }
+    }
     @include tab {
       min-height: calc(100svh - var(--header-height, 6.5rem)) !important;
       height: calc(100svh - var(--header-height, 6.5rem));
