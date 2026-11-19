@@ -33,3 +33,5 @@ jobs:
             **/node_modules/**
             assets/scss/**
             **/*.css.map
+            # 0 バイトのファイルは ConoHa の FTPS で接続を切られるため送らない
+            parts/footer.html
