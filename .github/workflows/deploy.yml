@@ -23,8 +23,8 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
-          # FTP アカウントの接続先は /home/c7514829/public_html。末尾は必ず / で終える
-          server-dir: rakicompany.com/wp-content/themes/rakicompany/
+          # FTP のログイン直後はホーム（/home/c7514829）。末尾は必ず / で終える
+          server-dir: public_html/rakicompany.com/wp-content/themes/rakicompany/
           exclude: |
             **/.git*
             **/.git*/**
