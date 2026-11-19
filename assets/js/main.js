@@ -535,3 +535,68 @@ window.addEventListener("resize", closeDrawerIfDesktop);
     characterData: true,
   });
 })();
+
+// GTranslate: 原文言語（日本語）選択時は機械翻訳せず原文を再表示
+(function () {
+  const FALLBACK_DEFAULT_LANG = "ja";
+
+  const getDefaultLanguage = () => {
+    if (window.gtranslateSettings) {
+      const settings = Object.values(window.gtranslateSettings)[0];
+      if (settings && settings.default_language) {
+        return settings.default_language;
+      }
+    }
+    return FALLBACK_DEFAULT_LANG;
+  };
+
+  const getCurrentGtLang = () => {
+    const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]*)/);
+    if (!match || !match[1]) return null;
+    const parts = decodeURIComponent(match[1]).split("/");
+    return parts[2] || null;
+  };
+
+  const clearGoogTransCookie = () => {
+    const expires = "Thu, 01 Jan 1970 00:00:00 GMT";
+    const hostname = location.hostname;
+
+    document.cookie = `googtrans=; path=/; expires=${expires}`;
+    document.cookie = `googtrans=; path=/; domain=${hostname}; expires=${expires}`;
+
+    if (hostname.indexOf(".") !== -1) {
+      document.cookie = `googtrans=; path=/; domain=.${hostname}; expires=${expires}`;
+    }
+  };
+
+  const isTranslated = (defaultLang) => {
+    const html = document.documentElement;
+    if (
+      html.classList.contains("translated-ltr") ||
+      html.classList.contains("translated-rtl")
+    ) {
+      return true;
+    }
+
+    const currentGtLang = getCurrentGtLang();
+    return Boolean(currentGtLang && currentGtLang !== defaultLang);
+  };
+
+  document.addEventListener(
+    "click",
+    (event) => {
+      const link = event.target.closest("a[data-gt-lang]");
+      if (!link) return;
+
+      const defaultLang = getDefaultLanguage();
+      if (link.getAttribute("data-gt-lang") !== defaultLang) return;
+      if (!isTranslated(defaultLang)) return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      clearGoogTransCookie();
+      location.reload();
+    },
+    true
+  );
+})();

@@ -44,6 +44,8 @@ header {
       .wp-block-navigation__submenu-container
         > .wp-block-navigation-item {
         width: auto;
+        padding-inline: 1rem;
+        box-sizing: border-box;
 
         > a.wp-block-navigation-item__content {
           height: auto;
@@ -53,23 +55,27 @@ header {
           width: max-content !important;
           max-width: 100%;
           padding-inline: 0 !important;
+          padding-top: 0.35em;
+          padding-bottom: 0.5em;
+          line-height: 1.35;
           background-image: linear-gradient($color-black, $color-black);
           background-repeat: no-repeat;
           background-size: 0% 1px;
-          background-position: 0 100%;
+          background-position: 0 calc(100% - 0.5em);
           transition: background-size 1s ease;
 
           &:hover {
             background-image: linear-gradient($color-black, $color-black);
             background-size: 100% 1px;
-            background-position: 0 100%;
+            background-position: 0 calc(100% - 0.5em);
           }
         }
       }
     }
 
     .wp-block-navigation.items-justified-right .wp-block-navigation__container .has-child .wp-block-navigation__submenu-container{
-      left: -1rem;
+      left: auto;
+      right: 0;
     }
     
     .wp-block-navigation:not(.has-background) .wp-block-navigation__submenu-container{

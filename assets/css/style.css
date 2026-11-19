@@ -620,6 +620,8 @@ header {
 @media (min-width: 600px) {
   header .wp-block-navigation__submenu-container > .wp-block-navigation-item {
     width: auto;
+    padding-inline: 1rem;
+    box-sizing: border-box;
   }
   header .wp-block-navigation__submenu-container > .wp-block-navigation-item > a.wp-block-navigation-item__content {
     height: auto;
@@ -629,20 +631,24 @@ header {
     width: max-content !important;
     max-width: 100%;
     padding-inline: 0 !important;
+    padding-top: 0.35em;
+    padding-bottom: 0.5em;
+    line-height: 1.35;
     background-image: linear-gradient(#3e3e3e, #3e3e3e);
     background-repeat: no-repeat;
     background-size: 0% 1px;
-    background-position: 0 100%;
+    background-position: 0 calc(100% - 0.5em);
     transition: background-size 1s ease;
   }
   header .wp-block-navigation__submenu-container > .wp-block-navigation-item > a.wp-block-navigation-item__content:hover {
     background-image: linear-gradient(#3e3e3e, #3e3e3e);
     background-size: 100% 1px;
-    background-position: 0 100%;
+    background-position: 0 calc(100% - 0.5em);
   }
 }
 header .wp-block-navigation.items-justified-right .wp-block-navigation__container .has-child .wp-block-navigation__submenu-container {
-  left: -1rem;
+  left: auto;
+  right: 0;
 }
 header .wp-block-navigation:not(.has-background) .wp-block-navigation__submenu-container {
   border: none;
@@ -981,6 +987,12 @@ html[lang^=en]:not(:lang(ja)) .p-project .wp-block-cover__inner-container p {
 html.translated-ltr .p-project .wp-block-cover__inner-container p:empty,
 html[lang^=en]:not(:lang(ja)) .p-project .wp-block-cover__inner-container p:empty {
   display: none;
+}
+@media screen and (max-width: 480px) {
+  html.translated-ltr .p-project .wp-block-cover__inner-container,
+  html[lang^=en]:not(:lang(ja)) .p-project .wp-block-cover__inner-container {
+    top: 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1335,7 +1347,7 @@ header {
     margin-right: 4rem;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   header.site-header .wp-block-navigation__responsive-container-open,
   header .wp-block-navigation__responsive-container-open {
     height: 100%;
@@ -1365,7 +1377,7 @@ header .wp-block-navigation__responsive-container-close svg {
   width: 48px;
   height: 48px;
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   header.site-header .wp-block-navigation__responsive-container-close svg,
   header .wp-block-navigation__responsive-container-close svg {
     width: 20px;
@@ -1451,6 +1463,34 @@ header .c-title a:hover {
   }
 }
 
+/* ==========================================================================
+   Main Stylesheet
+   ========================================================================== */
+/**
+ * メインスタイルシート
+ * FLOCSSの設計思想に基づいた構成
+ *
+ * Foundation  → プロジェクトの基盤となるスタイル
+ * Layout      → ページを構成する大きなブロックのスタイル
+ * Object      → ページを構成するコンポーネントのスタイル
+ *   Component → 再利用可能な小さな単位のスタイル
+ *   Project   → プロジェクト固有のコンポーネントのスタイル
+ *   Utility   → 汎用的なユーティリティクラスのスタイル
+ */
+@media screen and (max-width: 768px) {
+  .gt_float_switcher .gt-selected .gt-current-lang img {
+    width: 18px !important;
+    height: auto;
+  }
+  .gt_float_switcher .gt-selected .gt-current-lang .gt-lang-code {
+    font-size: 16px !important;
+  }
+  .gt_float_switcher .gt-selected .gt-current-lang .gt_float_switcher-arrow {
+    height: 10px !important;
+    width: 10px;
+    background-size: 8px;
+  }
+}
 /* ==========================================================================
    Main Stylesheet
    ========================================================================== */

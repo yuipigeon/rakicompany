@@ -1,0 +1,23 @@
+@use "../../foundation/global/index" as *;
+
+// GTranslate フロートウィジェット（tab以下でコンパクトに）
+@include tab {
+  .gt_float_switcher {
+    .gt-selected .gt-current-lang {
+      img {
+        width: 18px !important;
+        height: auto;
+      }
+
+      .gt-lang-code {
+        font-size: 16px !important;
+      }
+
+      .gt_float_switcher-arrow {
+        height: 10px !important;
+        width: 10px;
+        background-size: 8px;
+      }
+    }
+  }
+}

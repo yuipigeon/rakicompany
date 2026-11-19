@@ -74,6 +74,10 @@ html[lang^="en"]:not(:lang(ja)) {
     p:empty {
       display: none;
     }
+
+    @include sp {
+      top: 0;
+    }
   }
 }
 
