@@ -1,0 +1,35 @@
+name: Deploy to production
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload theme via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          # FTP アカウントの接続先は /home/c7514829/public_html。末尾は必ず / で終える
+          server-dir: rakicompany.com/wp-content/themes/rakicompany/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            **/.DS_Store
+            **/node_modules/**
+            assets/scss/**
+            **/*.css.map
