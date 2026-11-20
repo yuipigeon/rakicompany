@@ -113,23 +113,42 @@ footer{
   white-space: nowrap;
 }
 
+// サイトマップとして、サブメニューはホバーで開かず常に表示する
+.wp-block-navigation .has-child {
+  flex-wrap: wrap;
+
+  .wp-block-navigation__submenu-container {
+    position: static;
+    flex-basis: 100%;
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    padding-bottom: 0;
+    transition: none;
+  }
+
+  .wp-block-navigation__submenu-icon {
+    display: none;
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
 .wp-container-core-group-is-layout-35d1f3ed {
   gap: 50px;
-}
-
-.mb{
-  margin-bottom:  1.5rem;
-}
-
-.appear{
-  opacity: 1;
 }
 
 .wp-block-navigation-item__label {
   font-size: 1rem;
 }
 
-.wp-container-core-group-is-layout-fe9cc265 a:where(:not(.wp-element-button)){
+// Social のリンク：初期は下線なし、ホバー時はナビと同じ 1px
+.p-footer .has-m-plus-1-p-font-family a:where(:not(.wp-element-button)) {
     height: auto;
     text-decoration: none;
     position: relative;
@@ -139,7 +158,6 @@ footer{
     background-size: 0% 1px;
     background-position: 0 100%;
     transition: background-size 1s ease;
-    position: relative;
     font-weight: 400;
     font-size: 1rem;
     &:hover {

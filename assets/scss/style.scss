@@ -47,6 +47,8 @@
 @use "object/project/p-news";
 @use "object/project/p-contact";
 @use "object/project/p-onlinecontents";
+@use "object/project/p-paper";
+@use "object/project/p-about";
 @use "object/project/single-news";
 @use "object/project/single-books";
 @use "object/project/single-post";
@@ -54,6 +56,8 @@
 @use "object/project/archive-news";
 @use "object/project/p-404";
 @use "object/project/p-page";
+@use "object/project/p-card-link";
+@use "object/project/p-text-cover";
 
 //utility
 @use "object/utility/u-margin";

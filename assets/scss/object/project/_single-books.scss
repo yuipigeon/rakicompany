@@ -24,7 +24,7 @@
     justify-self: center;
     height: 100%;
     display: grid;
-    grid-template-rows: 20% 80%;
+    grid-template-rows: auto 1fr;
   }
   .entry-content {
     > p {

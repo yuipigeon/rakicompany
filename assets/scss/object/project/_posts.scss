@@ -1,6 +1,9 @@
 @use "../../foundation/global/index" as *;
 //latest-post
-.author {
+.author,
+.category,
+.post-type-archive-advertisement,
+.post-type-archive-paper {
   .wp-site-blocks {
     display: grid;
     grid-template-rows: auto 1fr auto;

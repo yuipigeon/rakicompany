@@ -1,0 +1,42 @@
+@use "../../foundation/global/index" as *;
+
+// 著書：表紙画像がない本の「文字の表紙」
+.p-text-cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  padding: 1.25rem 1rem;
+  box-sizing: border-box;
+  background-color: #ece6dd;
+  outline: 1px solid rgba($color-black, 0.25);
+  outline-offset: -8px;
+  transition: transform 0.3s ease-out;
+
+  .p-text-cover__title {
+    color: $color-black;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+    text-align: center;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+}
+
+// 詳細ページは表紙が大きいので、タイトルも大きく
+.wp-block-media-text__media .p-text-cover {
+  padding: 2.5rem 2rem;
+  outline-offset: -12px;
+
+  .p-text-cover__title {
+    font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  }
+}
+
+.home .p-query .wp-block-post:hover .p-text-cover,
+.post-type-archive-books .wp-block-post:hover .p-text-cover {
+  transform: scale(1.1);
+}

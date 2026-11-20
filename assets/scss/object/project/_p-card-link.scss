@@ -1,0 +1,84 @@
+@use "../../foundation/global/index" as *;
+
+// カード型の一覧：カード全体をタイトルのリンクにし、カードのホバーで画像を拡大・タイトルを薄くする
+$card: ".p-posts.columns-4 > li",
+  ".home .p-ad-posts .wp-block-post",
+  ".home .p-query .wp-block-post",
+  ".author .wp-block-post",
+  ".category .wp-block-post",
+  ".post-type-archive-advertisement .wp-block-post",
+  ".post-type-archive-books .wp-block-post";
+
+#{$card} {
+  position: relative;
+
+  .wp-block-post-title,
+  .wp-block-post-title a,
+  a.wp-block-latest-posts__post-title {
+    position: static;
+    background-image: none;
+  }
+
+  .wp-block-post-title a,
+  a.wp-block-latest-posts__post-title {
+    transition: opacity 0.3s ease-out;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+  }
+
+  .wp-block-post-featured-image,
+  .wp-block-latest-posts__featured-image {
+    transition: transform 0.3s ease-out;
+  }
+
+  &:hover {
+    .wp-block-post-title a,
+    a.wp-block-latest-posts__post-title {
+      opacity: 0.7;
+    }
+  }
+}
+
+// 写真カード（Online contents・Advertisement）は画像の枠ごと、Books は画像だけを拡大する
+.p-posts.columns-4 > li:hover .wp-block-latest-posts__featured-image,
+.home .p-ad-posts .wp-block-post:hover .wp-block-post-featured-image,
+.author .wp-block-post:hover .wp-block-post-featured-image,
+.category .wp-block-post:hover .wp-block-post-featured-image,
+.post-type-archive-advertisement .wp-block-post:hover .wp-block-post-featured-image {
+  transform: scale(1.1);
+}
+
+// Books のタイトルは h2 の初期値で太字になるので、他のカードに合わせる
+.home .p-query .wp-block-post-title,
+.post-type-archive-books .wp-block-post-title {
+  &,
+  a {
+    font-weight: 400;
+  }
+}
+
+.home .p-query .wp-block-post-featured-image img,
+.post-type-archive-books .wp-block-post-featured-image img {
+  transition: transform 0.3s ease-out;
+}
+
+.home .p-query .wp-block-post:hover .wp-block-post-featured-image img,
+.post-type-archive-books .wp-block-post:hover .wp-block-post-featured-image img {
+  transform: scale(1.1);
+}
+
+// テキスト内の外部リンク・プライバシーポリシー・TABIZINE へのリンク
+.p-profile__textarea a,
+.privacy-linkicon,
+.p-online-note a {
+  transition: opacity 0.3s ease-out;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

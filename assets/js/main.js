@@ -28,27 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-const navItems = document.querySelectorAll("footer .wp-block-navigation-submenu");
-
-// 1. 各メニュー項目に対してホバーイベントを設定
-navItems.forEach((item) => {
-  item.addEventListener("mouseenter", () => {
-    item.classList.add("mb");
-    const submenu = item.querySelector(".wp-block-navigation__submenu-container");
-    if (submenu) {
-      submenu.classList.add("appear");
-    }
-  });
-
-  item.addEventListener("mouseleave", () => {
-    item.classList.remove("mb");
-    const submenu = item.querySelector(".wp-block-navigation__submenu-container");
-    if (submenu) {
-      submenu.classList.remove("appear");
-    }
-  });
-});
-
 const DRAWER_MAX_WIDTH = 599;
 
 (function () {
@@ -533,6 +512,60 @@ window.addEventListener("resize", closeDrawerIfDesktop);
     childList: true,
     subtree: true,
     characterData: true,
+  });
+})();
+
+// Online contents All：カテゴリボタンで一覧とページ送りだけを差し替える（ページ送り自体は通常遷移）
+(function () {
+  const filter = document.querySelector(".c-filter");
+  const results = document.querySelector(".p-online-results");
+  if (!filter || !results) return;
+
+  const listKey = (url) => {
+    const { pathname, search } = new URL(url, window.location.href);
+    return pathname + search;
+  };
+  let currentKey = listKey(window.location.href);
+
+  const load = async (url, push) => {
+    currentKey = listKey(url);
+    results.classList.add("is-loading");
+    results.setAttribute("aria-busy", "true");
+    try {
+      const response = await fetch(url, { credentials: "same-origin" });
+      if (!response.ok) throw new Error(response.status);
+      const doc = new DOMParser().parseFromString(
+        await response.text(),
+        "text/html"
+      );
+      const nextResults = doc.querySelector(".p-online-results");
+      const nextFilter = doc.querySelector(".c-filter");
+      if (!nextResults || !nextFilter) throw new Error("missing markup");
+
+      results.innerHTML = nextResults.innerHTML;
+      filter.innerHTML = nextFilter.innerHTML;
+      if (push) history.pushState({ onlineFilter: true }, "", url);
+    } catch (error) {
+      window.location.href = url;
+    } finally {
+      results.classList.remove("is-loading");
+      results.removeAttribute("aria-busy");
+    }
+  };
+
+  filter.addEventListener("click", (event) => {
+    const link = event.target.closest("a");
+    if (!link || link.classList.contains("is-active")) {
+      if (link) event.preventDefault();
+      return;
+    }
+    event.preventDefault();
+    load(link.href, true);
+  });
+
+  window.addEventListener("popstate", () => {
+    if (listKey(window.location.href) === currentKey) return;
+    load(window.location.href, false);
   });
 })();
 

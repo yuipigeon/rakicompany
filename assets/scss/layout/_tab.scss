@@ -32,6 +32,10 @@
   .post-type-archive-books .wp-block-query > ul,
   .author .wp-block-post-template.columns-4,
   .author .wp-block-query ul.columns-4,
+  .category .wp-block-post-template.columns-4,
+  .category .wp-block-query ul.columns-4,
+  .post-type-archive-advertisement .wp-block-post-template.columns-4,
+  .home .p-ad-posts .wp-block-post-template.columns-4,
   .p-page,
   .p-404,
   .p-archive-news,
@@ -69,7 +73,11 @@
   .home .wp-block-query > ul,
   .post-type-archive-books .wp-block-query > ul,
   .author .wp-block-post-template.columns-4,
-  .author .wp-block-query ul.columns-4 {
+  .author .wp-block-query ul.columns-4,
+  .category .wp-block-post-template.columns-4,
+  .category .wp-block-query ul.columns-4,
+  .post-type-archive-advertisement .wp-block-post-template.columns-4,
+  .home .p-ad-posts .wp-block-post-template.columns-4 {
     grid-gap: 1.75rem !important;
   }
 
@@ -105,6 +113,10 @@
   .post-type-archive-books .wp-block-query > ul,
   .author .wp-block-post-template.columns-4,
   .author .wp-block-query ul.columns-4,
+  .category .wp-block-post-template.columns-4,
+  .category .wp-block-query ul.columns-4,
+  .post-type-archive-advertisement .wp-block-post-template.columns-4,
+  .home .p-ad-posts .wp-block-post-template.columns-4,
   .p-page,
   .p-404,
   .p-archive-news,

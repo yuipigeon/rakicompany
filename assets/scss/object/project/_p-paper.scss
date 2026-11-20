@@ -1,0 +1,114 @@
+@use "../../foundation/global/index" as *;
+
+// Paper Media（紙媒体記事）：媒体ごとのカード
+.p-paper-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: clamp(720px, 55%, 50rem);
+  margin: 0 auto;
+
+  @include tab {
+    gap: 1.5rem;
+    width: 65%;
+  }
+  @include sp {
+    gap: 1rem;
+    width: 80%;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+
+    @include tab {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+    @include sp {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1rem;
+    }
+
+    // 号・タイトルのあるカードは、いちばん高いカードに全段そろえる
+    &.is-detail {
+      grid-auto-rows: 1fr;
+    }
+  }
+}
+
+.p-paper-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 9rem;
+  padding: 1.5rem 1rem;
+  border: 1px solid rgba($color-black, 0.2);
+  box-sizing: border-box;
+  text-align: center;
+
+  &.is-name-only {
+    justify-content: center;
+  }
+
+  @include sp {
+    min-height: 0;
+    padding: 1.25rem 1rem;
+  }
+
+  &__media {
+    margin: 0;
+    font-size: 1.0625rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+  }
+
+  &__list {
+    width: 100%;
+    margin: 1rem 0 0;
+    padding: 1rem 0 0;
+    border-top: 1px solid rgba($color-black, 0.2);
+    list-style: none;
+  }
+
+  &__item {
+    width: auto;
+    line-height: 1.6;
+
+    & + & {
+      margin-top: 0.875rem;
+    }
+  }
+
+  &__issue {
+    display: block;
+    font-size: 0.75rem;
+  }
+
+  &__title {
+    display: block;
+    font-size: 0.8125rem;
+    word-break: auto-phrase;
+    text-wrap: balance;
+  }
+
+  &__pdf {
+    display: inline-block;
+    margin-top: 0.375rem;
+    padding: 0 10px;
+    border: 1px solid $color-black;
+    border-radius: 20px;
+    color: $color-black;
+    font-size: 0.6875rem;
+    line-height: 1.6;
+    text-decoration: none;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+      background-color: $color-black;
+      color: $color-white;
+    }
+  }
+}

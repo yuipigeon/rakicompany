@@ -1,38 +1,7 @@
 @use "../../foundation/global/index" as *;
 
-// オンラインコンテンツ一覧（/author/{nicename}/）
-// サイトエディターの著者テンプレートでも、フロント .p-posts と同じ見た目にする
-.author {
-  .wp-site-blocks {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-  }
-  header.wp-block-template-part {
-    grid-row: 1 / 2;
-  }
-  main,
-  .wp-site-blocks > .wp-block-group.is-layout-constrained {
-    grid-row: 2 / 3;
-    --wp--style--global--content-size: 100%;
-    --wp--style--global--wide-size: 100%;
-
-    > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
-      max-width: none !important;
-      // margin-left: 0 !important;
-      // margin-right: 0 !important;
-    }
-  }
-  footer .wp-block-template-part,
-  footer.wp-block-template-part {
-    grid-row: 3 / 4;
-  }
-
-  .wp-block-heading.has-text-align-center {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
+// オンラインコンテンツ・広告記事のカード（4列グリッド・画像・タイトル）
+@mixin online-cards {
   .wp-block-query {
     font-size: 1rem;
   }
@@ -151,5 +120,182 @@
       width: 100%;
       object-fit: cover;
     }
+  }
+}
+
+// オンラインコンテンツ一覧（/author/{nicename}/ と /category/{slug}/）
+// サイトエディターの著者テンプレートでも、フロント .p-posts と同じ見た目にする
+.author,
+.category,
+.post-type-archive-advertisement,
+.post-type-archive-paper {
+  .wp-site-blocks {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+  header.wp-block-template-part {
+    grid-row: 1 / 2;
+  }
+  main,
+  .wp-site-blocks > .wp-block-group.is-layout-constrained {
+    grid-row: 2 / 3;
+    --wp--style--global--content-size: 100%;
+    --wp--style--global--wide-size: 100%;
+
+    > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+      max-width: none !important;
+      // margin-left: 0 !important;
+      // margin-right: 0 !important;
+    }
+  }
+  footer .wp-block-template-part,
+  footer.wp-block-template-part {
+    grid-row: 3 / 4;
+  }
+
+  .wp-block-heading.has-text-align-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include online-cards;
+}
+
+// フロントページの広告記事（.home .wp-block-query の著書用スタイルより優先）
+.home .p-ad-posts {
+  @include online-cards;
+}
+
+// Online contents All のカテゴリ切り替えボタン（.c-more と同じ楕円）
+.c-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0 auto 3rem;
+  padding: 0;
+  width: clamp(720px, 55%, 50rem);
+  list-style: none;
+
+  @include tab {
+    width: 65%;
+  }
+  @include sp {
+    width: 80%;
+  }
+
+  li {
+    width: auto;
+  }
+
+  a {
+    cursor: pointer;
+    display: block;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: 1px solid $color-black;
+    color: $color-black;
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: all 0.3s ease-out;
+
+    &:hover,
+    &.is-active {
+      background-color: $color-black;
+      color: $color-white;
+    }
+  }
+}
+
+.p-online-results {
+  transition: opacity 0.3s ease-out;
+
+  &.is-loading {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
+// WP-PageNavi（プラグインのCSSは読み込まず、ここで最小限に）
+.wp-pagenavi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 3rem auto 0;
+  font-size: 0.875rem;
+
+  a,
+  span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    border-radius: 50%;
+    color: $color-black;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .current {
+    border: 1px solid $color-black;
+  }
+
+  .extend {
+    width: auto;
+  }
+}
+
+.p-online-note {
+  margin: 2.5rem auto 0;
+  padding: 0 1rem;
+  font-size: 0.8125rem;
+  color: $color-black;
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+}
+
+.p-category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  margin: 2rem auto 0;
+  padding: 0;
+  width: clamp(720px, 55%, 50rem);
+  list-style: none;
+  font-size: 0.875rem;
+
+  @include tab {
+    width: 86%;
+  }
+
+  .cat-item {
+    width: auto;
+  }
+
+  .cat-item a {
+    color: $color-black;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .current-cat a {
+    color: var(--wp--preset--color--primary);
+    pointer-events: none;
   }
 }
